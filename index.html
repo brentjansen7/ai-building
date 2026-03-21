@@ -677,8 +677,9 @@
     <div class="container">
       <div class="about-wrap reveal">
         <div class="about-photo">
-          <!-- Vervang onderstaande div met een <img src="brent.jpg" alt="Brent Jansen"> als je een eigen foto wilt -->
-          <div class="photo-placeholder">
+          <img src="brent.jpg" alt="Brent Jansen – AI Building Agency"
+               onerror="this.style.display='none'; document.getElementById('photo-fallback').style.display='flex';" />
+          <div class="photo-placeholder" id="photo-fallback" style="display:none;">
             <div class="photo-initials">BJ</div>
             <div class="photo-name">Brent Jansen</div>
             <div class="photo-role">AI Building Agency</div>
