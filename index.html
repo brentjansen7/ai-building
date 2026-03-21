@@ -385,15 +385,89 @@
     }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
+    /* ====== MODAL ====== */
+    .modal-overlay {
+      display: none; position: fixed; inset: 0; z-index: 999;
+      background: rgba(0,0,0,.7); backdrop-filter: blur(6px);
+      align-items: center; justify-content: center; padding: 24px;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: var(--bg2); border: 1px solid rgba(79,142,247,.25);
+      border-radius: 20px; padding: 44px 40px; width: 100%; max-width: 520px;
+      position: relative; animation: fadeUp .3s ease both;
+    }
+    .modal-close {
+      position: absolute; top: 16px; right: 20px;
+      background: none; border: none; color: var(--gray);
+      font-size: 1.4rem; cursor: pointer; line-height: 1;
+      transition: color .2s;
+    }
+    .modal-close:hover { color: var(--white); }
+    .modal h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 6px; }
+    .modal .modal-sub { font-size: .9rem; color: var(--gray); margin-bottom: 28px; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: .82rem; font-weight: 600; color: var(--light); margin-bottom: 7px; }
+    .form-group input,
+    .form-group textarea {
+      width: 100%; background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 9px; padding: 12px 16px;
+      color: var(--white); font-family: inherit; font-size: .92rem;
+      transition: border-color .2s;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus { border-color: rgba(79,142,247,.5); }
+    .form-group textarea { min-height: 100px; resize: vertical; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .modal .btn-primary { width: 100%; margin-top: 8px; text-align: center; border: none; cursor: pointer; font-family: inherit; }
+    .free-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(0,200,100,.1); border: 1px solid rgba(0,200,100,.25);
+      border-radius: 50px; padding: 5px 14px; font-size: .78rem;
+      color: #4ade80; font-weight: 600; margin-bottom: 20px;
+    }
+
+    /* ====== PHOTO ====== */
+    .about-photo {
+      width: 100%; aspect-ratio: 1;
+      border-radius: 20px; overflow: hidden;
+      border: 1px solid var(--border);
+      position: relative;
+    }
+    .about-photo img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    .photo-placeholder {
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, #0d1526 0%, #131340 100%);
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
+    }
+    .photo-initials {
+      width: 90px; height: 90px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), var(--cyan));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem; font-weight: 900; color: #fff;
+    }
+    .photo-name { font-size: 1rem; font-weight: 700; color: var(--light); }
+    .photo-role { font-size: .82rem; color: var(--gray); }
+    .about-photo::after {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(circle at 60% 30%, rgba(79,142,247,.15), transparent 65%);
+      pointer-events: none;
+    }
+
     /* ====== RESPONSIVE ====== */
     @media (max-width: 768px) {
       nav { padding: 0 20px; }
       .nav-links { display: none; }
       section { padding: 72px 20px; }
       .about-wrap { grid-template-columns: 1fr; }
-      .about-visual { max-width: 260px; margin: 0 auto; }
+      .about-photo { max-width: 280px; margin: 0 auto; }
       .cta-box { padding: 44px 28px; }
       .hero-stats { gap: 28px; }
+      .form-row { grid-template-columns: 1fr; }
+      .modal { padding: 36px 24px; }
     }
   </style>
 </head>
@@ -411,7 +485,7 @@
       <a href="#cases">Resultaten</a>
       <a href="#over-brent">Over mij</a>
     </div>
-    <a href="mailto:brentjansen.ai.building@gmail.com" class="nav-cta">Gratis kennismaking</a>
+    <button onclick="openModal()" class="nav-cta">Gratis kennismaking</button>
   </nav>
 
   <!-- ===== HERO ===== -->
@@ -428,7 +502,7 @@
         klanten beter bedienen en jou tijd besparen — zodat jij focust op groeien.
       </p>
       <div class="hero-btns">
-        <a href="mailto:brentjansen.ai.building@gmail.com" class="btn-primary">Stuur me een berichtje →</a>
+        <button onclick="openModal()" class="btn-primary">Gratis kennismaking aanvragen →</button>
         <a href="#cases" class="btn-ghost">Bekijk resultaten</a>
       </div>
       <div class="hero-stats">
@@ -508,22 +582,29 @@
         <div class="step">
           <div class="step-num">1</div>
           <div class="step-content">
-            <h3>Gratis kennismaking</h3>
-            <p>Stuur me een berichtje. We bespreken waar jij tegenaan loopt en wat AI voor jou kan betekenen. Geen verplichtingen.</p>
+            <h3>Jij vertelt waar je tijd aan kwijt bent <span style="color:var(--blue);font-size:.8rem;font-weight:600;">— gratis</span></h3>
+            <p>Vul het formulier in of stuur me een berichtje. Vertel waar jij en je team de meeste tijd aan besteden. Geen verplichtingen, geen kosten.</p>
           </div>
         </div>
         <div class="step">
           <div class="step-num">2</div>
           <div class="step-content">
-            <h3>We bouwen het</h3>
-            <p>Ik bouw een AI-systeem dat precies past bij jouw bedrijf. Je ziet wat we bouwen en geeft feedback onderweg.</p>
+            <h3>Ik kijk wat ik kan bouwen <span style="color:var(--blue);font-size:.8rem;font-weight:600;">— gratis</span></h3>
+            <p>Ik analyseer jouw situatie en kijk of ik een AI-systeem kan bouwen dat dit automatiseert. Als het kan, ga ik aan de slag. Als het niet kan, zeg ik dat eerlijk.</p>
           </div>
         </div>
         <div class="step">
           <div class="step-num">3</div>
           <div class="step-content">
-            <h3>Jij groeit</h3>
-            <p>Het systeem gaat live. Jij bespaart tijd, bedient klanten beter en kunt je richten op wat jij het beste doet.</p>
+            <h3>Jij probeert het 14 dagen uit <span style="color:var(--blue);font-size:.8rem;font-weight:600;">— gratis</span></h3>
+            <p>Je krijgt de link en mag het systeem twee weken gratis uitproberen in de praktijk. Volledig risico-vrij — je betaalt niets tijdens de proefperiode.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h3>Tevreden? Dan gaan we verder</h3>
+            <p>Na de proefperiode bespreken we of het systeem jou tijd en geld bespaart. Alleen als je blij bent, volgt een lage maandelijkse vergoeding. Geen verrassingen.</p>
           </div>
         </div>
       </div>
@@ -595,18 +676,34 @@
   <section id="over-brent">
     <div class="container">
       <div class="about-wrap reveal">
-        <div class="about-visual">🤖</div>
+        <div class="about-photo">
+          <!-- Vervang onderstaande div met een <img src="brent.jpg" alt="Brent Jansen"> als je een eigen foto wilt -->
+          <div class="photo-placeholder">
+            <div class="photo-initials">BJ</div>
+            <div class="photo-name">Brent Jansen</div>
+            <div class="photo-role">AI Building Agency</div>
+          </div>
+        </div>
         <div class="about-content">
           <p class="section-label">Over mij</p>
           <h2 class="section-title">Hé, ik ben Brent</h2>
-          <p class="section-sub" style="margin-top:16px; color: var(--light);">
-            Ik bouw AI-systemen die bedrijven echt verder helpen — geen hype, maar praktische oplossingen die werken.
+          <p style="margin-top:18px; color: var(--light); line-height:1.75;">
+            Ik ben 16 jaar, woon in Krimpen aan den IJssel en zit in 5 HAVO op het Krimpenerwaardcollege. Terwijl de meeste mensen van mijn leeftijd nog nadenken over wat ze later willen doen, weet ik het al: AI bouwen voor bedrijven.
           </p>
-          <div class="about-list">
-            <div class="about-item">100% op maat — geen kant-en-klare oplossingen</div>
+          <p style="margin-top:14px; color: var(--light); line-height:1.75;">
+            Ik ben al een tijdje gefascineerd door wat AI kan doen. Niet de hype eromheen, maar de praktische kant — systemen bouwen die bedrijven écht tijd en geld besparen. Dat is waar ik elke dag mee bezig ben, naast school en sporten.
+          </p>
+          <p style="margin-top:14px; color: var(--light); line-height:1.75;">
+            Inmiddels heb ik bedrijven geholpen in de horeca, zorg en logistiek. Elk bedrijf is anders, en daarom bouw ik altijd iets op maat. Geen kant-en-klare oplossingen, maar systemen die precies passen bij hoe jij werkt.
+          </p>
+          <p style="margin-top:14px; color: var(--light); line-height:1.75;">
+            Mijn aanpak is simpel: eerst kijken of ik je echt kan helpen, dan 14 dagen gratis uitproberen, en pas daarna een lage maandelijkse vergoeding. Zo neem jij geen enkel risico.
+          </p>
+          <div class="about-list" style="margin-top:24px;">
+            <div class="about-item">16 jaar, gedreven en hands-on</div>
             <div class="about-item">Ervaring in horeca, zorg én logistiek</div>
-            <div class="about-item">Snelle communicatie, korte doorlooptijden</div>
-            <div class="about-item">Je blijft altijd eigenaar van wat we bouwen</div>
+            <div class="about-item">Altijd bereikbaar, korte lijntjes</div>
+            <div class="about-item">Je betaalt pas als je tevreden bent</div>
           </div>
           <div class="about-contact">
             <a href="mailto:brentjansen.ai.building@gmail.com" class="contact-chip">
@@ -627,9 +724,9 @@
       <div class="cta-box reveal">
         <h2>Klaar om te starten?</h2>
         <p>Stuur me een berichtje en ik kom erachter wat AI voor jouw bedrijf kan doen.<br />Gratis kennismaking, geen gedoe.</p>
-        <a href="mailto:brentjansen.ai.building@gmail.com" class="btn-primary">
-          Stuur me een berichtje →
-        </a>
+        <button onclick="openModal()" class="btn-primary">
+          Gratis kennismaking aanvragen →
+        </button>
       </div>
     </div>
   </section>
@@ -644,8 +741,40 @@
     <p style="color:#444;">© 2026 AI Building Agency. Alle rechten voorbehouden.</p>
   </footer>
 
-  <!-- ===== JS: scroll reveal ===== -->
+  <!-- ===== KENNISMAKING MODAL ===== -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" onclick="closeModal()" aria-label="Sluiten">✕</button>
+      <div class="free-badge">✅ 100% gratis kennismaking</div>
+      <h3 id="modalTitle">Vertel me over jouw bedrijf</h3>
+      <p class="modal-sub">Vul het formulier in en ik kijk wat AI voor jou kan betekenen. Geen verplichtingen.</p>
+      <form id="contactForm" onsubmit="submitForm(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="f-naam">Jouw naam</label>
+            <input type="text" id="f-naam" placeholder="Jan de Vries" required />
+          </div>
+          <div class="form-group">
+            <label for="f-bedrijf">Bedrijfsnaam</label>
+            <input type="text" id="f-bedrijf" placeholder="Jouw bedrijf BV" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="f-email">E-mailadres</label>
+          <input type="email" id="f-email" placeholder="jij@bedrijf.nl" required />
+        </div>
+        <div class="form-group">
+          <label for="f-tijd">Waar ben je het meeste tijd aan kwijt?</label>
+          <textarea id="f-tijd" placeholder="Bijv: elke dag handmatig facturen invoeren, roosters maken, klanten opbellen voor bevestigingen..." required></textarea>
+        </div>
+        <button type="submit" class="btn-primary">Verstuur kennismaking →</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===== JS ===== -->
   <script>
+    // Scroll reveal
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) {
@@ -654,8 +783,40 @@
         }
       });
     }, { threshold: 0.12 });
-
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Modal
+    function openModal() {
+      document.getElementById('modalOverlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal() {
+      document.getElementById('modalOverlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function closeModalOutside(e) {
+      if (e.target === document.getElementById('modalOverlay')) closeModal();
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+    // Form submit → opent e-mail met ingevulde gegevens
+    function submitForm(e) {
+      e.preventDefault();
+      const naam    = document.getElementById('f-naam').value;
+      const bedrijf = document.getElementById('f-bedrijf').value;
+      const email   = document.getElementById('f-email').value;
+      const tijd    = document.getElementById('f-tijd').value;
+
+      const subject = encodeURIComponent(`Kennismaking – ${bedrijf}`);
+      const body    = encodeURIComponent(
+        `Hoi Brent,\n\nIk heb interesse in een gratis kennismaking.\n\n` +
+        `Naam: ${naam}\nBedrijf: ${bedrijf}\nE-mail: ${email}\n\n` +
+        `Waar ik het meeste tijd aan kwijt ben:\n${tijd}\n\nGroet,\n${naam}`
+      );
+
+      window.location.href = `mailto:brentjansen.ai.building@gmail.com?subject=${subject}&body=${body}`;
+      closeModal();
+    }
   </script>
 </body>
 </html>
