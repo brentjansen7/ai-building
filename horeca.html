@@ -314,7 +314,7 @@
       <div class="free-badge">✅ 100% gratis kennismaking</div>
       <h3>Vertel me over jouw restaurant</h3>
       <p class="modal-sub">Vul het formulier in en ik kijk wat AI voor jou kan doen.</p>
-      <form id="contactForm" onsubmit="submitForm(event)">
+      <form id="contactForm" action="https://formspree.io/f/xyknazww" method="POST">
         <input type="hidden" name="branche" value="Horeca" />
         <div class="form-row">
           <div class="form-group">
@@ -350,16 +350,15 @@
     function closeModalOutside(e) { if (e.target === document.getElementById('modalOverlay')) closeModal(); }
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
-    function submitForm(e) {
+    async function submitForm(e) {
       e.preventDefault();
-      const naam = document.getElementById('f-naam').value;
-      const bedrijf = document.getElementById('f-bedrijf').value;
-      const email = document.getElementById('f-email').value;
-      const tijd = document.getElementById('f-tijd').value;
-      const subject = encodeURIComponent(`Kennismaking Horeca – ${bedrijf}`);
-      const body = encodeURIComponent(`Hoi Brent,\n\nIk heb interesse in een gratis kennismaking.\n\nNaam: ${naam}\nRestaurant: ${bedrijf}\nE-mail: ${email}\n\nWaar ik het meeste tijd aan kwijt ben:\n${tijd}\n\nGroet,\n${naam}`);
-      window.location.href = `mailto:brentjansen.ai.building@gmail.com?subject=${subject}&body=${body}`;
-      closeModal();
+      const form = document.getElementById('contactForm');
+      const btn = form.querySelector('button[type="submit"]');
+      btn.textContent = 'Bezig met verzenden...'; btn.disabled = true;
+      const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } });
+      if (res.ok) {
+        form.innerHTML = `<div style="text-align:center;padding:20px 0;"><div style="font-size:3rem;margin-bottom:16px;">✅</div><h3>Verstuurd!</h3><p style="color:var(--gray);margin-top:12px;">Bedankt! Ik neem zo snel mogelijk contact op.</p><button onclick="closeModal()" class="btn-primary" style="margin-top:24px;border:none;cursor:pointer;font-family:inherit;">Sluiten</button></div>`;
+      } else { btn.textContent = 'Fout — probeer opnieuw'; btn.disabled = false; }
     }
   </script>
 </body>
