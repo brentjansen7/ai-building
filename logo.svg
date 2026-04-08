@@ -26,7 +26,7 @@
   <circle cx="6"  cy="37" r="2"   fill="#00d4ff"/>
   <circle cx="32" cy="4"  r="2.5" fill="#00d4ff"/>
 
-  <!-- Wordmark: AUTO wit, MADE exact --cyan van de site -->
+  <!-- Wordmark: AUTO wit, MADE cyan -->
   <text x="60" y="41"
     font-family="'Montserrat', 'Inter', 'Arial Black', Arial, sans-serif"
     font-size="36" font-weight="900" letter-spacing="1"
