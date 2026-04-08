@@ -1,20 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 310 60" width="310" height="60">
-  <defs>
-    <!-- Exact same gradient as website hero: #4f8ef7 → #00d4ff -->
-    <linearGradient id="g" x1="0" y1="0" x2="310" y2="60" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#4f8ef7"/>
-      <stop offset="100%" stop-color="#00d4ff"/>
-    </linearGradient>
-  </defs>
 
   <!-- Large gear -->
-  <circle cx="26" cy="48" r="10" fill="none" stroke="url(#g)" stroke-width="5" stroke-dasharray="4.5 3"/>
-  <circle cx="26" cy="48" r="7" fill="url(#g)"/>
+  <circle cx="26" cy="48" r="10" fill="none" stroke="#00d4ff" stroke-width="5" stroke-dasharray="4.5 3"/>
+  <circle cx="26" cy="48" r="7"  fill="#00d4ff"/>
   <circle cx="26" cy="48" r="2.8" fill="#06060f"/>
 
   <!-- Small gear -->
-  <circle cx="40" cy="56" r="7" fill="none" stroke="url(#g)" stroke-width="4" stroke-dasharray="3.5 2.5"/>
-  <circle cx="40" cy="56" r="4.5" fill="url(#g)"/>
+  <circle cx="40" cy="56" r="7"  fill="none" stroke="#00d4ff" stroke-width="4" stroke-dasharray="3.5 2.5"/>
+  <circle cx="40" cy="56" r="4.5" fill="#00d4ff"/>
   <circle cx="40" cy="56" r="1.8" fill="#06060f"/>
 
   <!-- A shape -->
@@ -23,22 +16,21 @@
   <polygon points="16,37 44,37 42,46 18,46" fill="white"/>
 
   <!-- Circuit traces -->
-  <line x1="30" y1="14" x2="8"  y2="14" stroke="url(#g)" stroke-width="1.6" stroke-linecap="round"/>
-  <line x1="8"  y1="14" x2="8"  y2="26" stroke="url(#g)" stroke-width="1.6" stroke-linecap="round"/>
-  <circle cx="8"  cy="26" r="3"   fill="none" stroke="url(#g)" stroke-width="1.6"/>
-  <circle cx="19" cy="14" r="2"   fill="url(#g)"/>
-  <line x1="28" y1="25" x2="4"  y2="25" stroke="url(#g)" stroke-width="1.6" stroke-linecap="round"/>
-  <circle cx="4"  cy="25" r="3"   fill="none" stroke="url(#g)" stroke-width="1.6"/>
-  <line x1="16" y1="37" x2="6"  y2="37" stroke="url(#g)" stroke-width="1.6" stroke-linecap="round"/>
-  <circle cx="6"  cy="37" r="2"   fill="url(#g)"/>
-  <circle cx="32" cy="4"  r="2.5" fill="url(#g)"/>
+  <line x1="30" y1="14" x2="8"  y2="14" stroke="#00d4ff" stroke-width="1.6" stroke-linecap="round"/>
+  <line x1="8"  y1="14" x2="8"  y2="26" stroke="#00d4ff" stroke-width="1.6" stroke-linecap="round"/>
+  <circle cx="8"  cy="26" r="3"   fill="none" stroke="#00d4ff" stroke-width="1.6"/>
+  <circle cx="19" cy="14" r="2"   fill="#00d4ff"/>
+  <line x1="28" y1="25" x2="4"  y2="25" stroke="#00d4ff" stroke-width="1.6" stroke-linecap="round"/>
+  <circle cx="4"  cy="25" r="3"   fill="none" stroke="#00d4ff" stroke-width="1.6"/>
+  <line x1="16" y1="37" x2="6"  y2="37" stroke="#00d4ff" stroke-width="1.6" stroke-linecap="round"/>
+  <circle cx="6"  cy="37" r="2"   fill="#00d4ff"/>
+  <circle cx="32" cy="4"  r="2.5" fill="#00d4ff"/>
 
-  <!-- Wordmark -->
+  <!-- Wordmark: AUTO wit, MADE exact --cyan van de site -->
   <text x="60" y="41"
     font-family="'Montserrat', 'Inter', 'Arial Black', Arial, sans-serif"
-    font-size="36" font-weight="900" letter-spacing="1">
-    <tspan fill="white">AUTO</tspan><tspan fill="url(#g)">MADE</tspan>
-  </text>
+    font-size="36" font-weight="900" letter-spacing="1"
+    fill="white">AUTO<tspan fill="#00d4ff">MADE</tspan></text>
 
   <!-- Tagline -->
   <text x="62" y="55"
@@ -46,4 +38,5 @@
     font-size="10" font-weight="400" fill="rgba(200,200,224,0.6)" letter-spacing="0.3">
     Krimpen aan den IJssel
   </text>
+
 </svg>
