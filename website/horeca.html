@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI voor Horeca & Restaurants | Krimpen & Rotterdam | automade solutions</title>
+  <meta name="description" content="Automatiseer feestverzoeken, facturen en klantenservice in jouw restaurant met AI. Brent Jansen helpt horecabedrijven in Krimpen aan den IJssel en regio Rotterdam." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://brentjansen7.github.io/ai-building/horeca" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #06060f; --bg2: #0d0d1a; --bg3: #13132a;
+      --border: rgba(255,255,255,0.07);
+      --blue: #4f8ef7; --blue-glow: rgba(79,142,247,0.25); --cyan: #00d4ff;
+      --white: #ffffff; --gray: #8888aa; --light: #c8c8e0;
+      --radius: 14px; --nav-h: 68px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--white); line-height: 1.6; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+    section { padding: 80px 24px; }
+    .container { max-width: 1000px; margin: 0 auto; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: var(--nav-h); display: flex; align-items: center; justify-content: space-between;
+      padding: 0 32px; background: rgba(6,6,15,0.9); backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+    .logo { font-size: 1.1rem; font-weight: 800; display: flex; align-items: center; gap: 10px; }
+    .logo-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--blue); box-shadow: 0 0 10px var(--blue); animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.6;transform:scale(1.3)} }
+    .nav-back { font-size: .85rem; color: var(--gray); display: flex; align-items: center; gap: 6px; transition: color .2s; }
+    .nav-back:hover { color: var(--white); }
+    .nav-cta { background: var(--blue); color: #fff; padding: 10px 22px; border-radius: 8px; font-size: .88rem; font-weight: 600; border: none; cursor: pointer; transition: opacity .2s, transform .2s; }
+    .nav-cta:hover { opacity: .88; transform: translateY(-1px); }
+
+    /* HERO */
+    #hero {
+      min-height: 85vh; display: flex; align-items: center;
+      padding: 120px 24px 60px; position: relative; overflow: hidden;
+    }
+    #hero::before {
+      content: ''; position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(79,142,247,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(79,142,247,.06) 1px, transparent 1px);
+      background-size: 50px 50px;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 40%, transparent 100%);
+    }
+    #hero::after {
+      content: ''; position: absolute; top: -20%; left: 50%; transform: translateX(-50%);
+      width: 700px; height: 400px;
+      background: radial-gradient(ellipse, rgba(79,142,247,.18) 0%, transparent 70%); pointer-events: none;
+    }
+    .hero-inner { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; text-align: center; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,160,0,.1); border: 1px solid rgba(255,160,0,.3);
+      border-radius: 50px; padding: 6px 16px; font-size: .8rem; color: #ffb347; font-weight: 600; margin-bottom: 24px;
+    }
+    .hero-badge::before { content: '🍕'; }
+    h1 { font-size: clamp(2.2rem, 5.5vw, 3.8rem); font-weight: 900; letter-spacing: -.04em; line-height: 1.1; }
+    h1 span { background: linear-gradient(135deg, var(--blue) 0%, var(--cyan) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero-sub { margin-top: 20px; font-size: clamp(.95rem, 2vw, 1.15rem); color: var(--gray); max-width: 520px; margin-left: auto; margin-right: auto; }
+    .hero-btns { margin-top: 36px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary { background: var(--blue); color: #fff; padding: 15px 32px; border-radius: 10px; font-size: 1rem; font-weight: 700; box-shadow: 0 4px 24px var(--blue-glow); transition: transform .2s, box-shadow .2s; border: none; cursor: pointer; font-family: inherit; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px var(--blue-glow); }
+    .btn-ghost { border: 1px solid var(--border); color: var(--light); background: transparent; padding: 15px 28px; border-radius: 10px; font-size: 1rem; font-weight: 600; transition: border-color .2s; }
+    .btn-ghost:hover { border-color: rgba(255,255,255,.25); color: var(--white); }
+
+    /* SECTIONS */
+    .section-label { font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--blue); margin-bottom: 10px; }
+    .section-title { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 800; letter-spacing: -.03em; line-height: 1.15; }
+    .section-sub { margin-top: 14px; font-size: 1rem; color: var(--gray); }
+
+    /* PAIN POINTS */
+    #pijn { background: var(--bg2); }
+    .pijn-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 40px; }
+    .pijn-card { background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 20px; }
+    .pijn-icon { font-size: 1.8rem; margin-bottom: 12px; }
+    .pijn-card h3 { font-size: .95rem; font-weight: 700; margin-bottom: 6px; }
+    .pijn-card p { font-size: .85rem; color: var(--gray); }
+
+    /* CASE */
+    #case { background: var(--bg); }
+    .case-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    .case-visual { background: var(--bg2); border: 1px solid var(--border); border-radius: 20px; padding: 36px; }
+    .case-visual h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+    .feature-list { display: flex; flex-direction: column; gap: 14px; }
+    .feature { display: flex; align-items: flex-start; gap: 12px; }
+    .feature-icon { width: 32px; height: 32px; border-radius: 8px; background: rgba(79,142,247,.12); border: 1px solid rgba(79,142,247,.2); display: flex; align-items: center; justify-content: center; font-size: .95rem; flex-shrink: 0; }
+    .feature-text h4 { font-size: .9rem; font-weight: 600; }
+    .feature-text p { font-size: .82rem; color: var(--gray); margin-top: 2px; }
+    .case-content .section-sub { max-width: 100%; }
+    .case-content p { font-size: .95rem; color: var(--light); line-height: 1.75; margin-top: 16px; }
+
+    /* HOW IT WORKS */
+    #hoe { background: var(--bg2); }
+    .steps { max-width: 600px; margin: 40px auto 0; display: flex; flex-direction: column; position: relative; }
+    .steps::before { content:''; position:absolute; left:28px; top:56px; bottom:56px; width:2px; background: linear-gradient(to bottom, var(--blue), var(--cyan)); opacity:.2; }
+    .step { display: flex; gap: 24px; align-items: flex-start; padding: 24px 0; }
+    .step-num { min-width: 56px; height: 56px; border-radius: 50%; background: rgba(79,142,247,.1); border: 2px solid rgba(79,142,247,.3); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: 800; color: var(--blue); position: relative; z-index: 1; }
+    .step-content h3 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+    .step-content p { font-size: .88rem; color: var(--gray); }
+    .free-tag { font-size: .75rem; color: var(--blue); font-weight: 600; margin-left: 8px; }
+
+    /* CTA */
+    #cta { background: var(--bg); text-align: center; }
+    .cta-box { max-width: 580px; margin: 0 auto; background: linear-gradient(135deg, rgba(79,142,247,.12) 0%, rgba(0,212,255,.06) 100%); border: 1px solid rgba(79,142,247,.25); border-radius: 24px; padding: 56px 44px; position: relative; overflow: hidden; }
+    .cta-box::before { content:''; position:absolute; top:-60px; right:-60px; width:200px; height:200px; background: radial-gradient(circle, rgba(79,142,247,.2) 0%, transparent 70%); pointer-events:none; }
+    .cta-box h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; letter-spacing: -.03em; }
+    .cta-box p { margin-top: 14px; color: var(--gray); font-size: .95rem; }
+    .cta-box .btn-primary { margin-top: 32px; display: inline-block; }
+
+    /* MODAL */
+    .modal-overlay { display: none; position: fixed; inset: 0; z-index: 999; background: rgba(0,0,0,.7); backdrop-filter: blur(6px); align-items: center; justify-content: center; padding: 24px; }
+    .modal-overlay.open { display: flex; }
+    .modal { background: var(--bg2); border: 1px solid rgba(79,142,247,.25); border-radius: 20px; padding: 44px 40px; width: 100%; max-width: 520px; position: relative; animation: fadeUp .3s ease both; }
+    .modal-close { position: absolute; top: 16px; right: 20px; background: none; border: none; color: var(--gray); font-size: 1.4rem; cursor: pointer; transition: color .2s; }
+    .modal-close:hover { color: var(--white); }
+    .modal h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 6px; }
+    .modal .modal-sub { font-size: .9rem; color: var(--gray); margin-bottom: 28px; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: .82rem; font-weight: 600; color: var(--light); margin-bottom: 7px; }
+    .form-group input, .form-group textarea { width: 100%; background: var(--bg3); border: 1px solid var(--border); border-radius: 9px; padding: 12px 16px; color: var(--white); font-family: inherit; font-size: .92rem; transition: border-color .2s; outline: none; }
+    .form-group input:focus, .form-group textarea:focus { border-color: rgba(79,142,247,.5); }
+    .form-group textarea { min-height: 90px; resize: vertical; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .modal .btn-primary { width: 100%; margin-top: 8px; text-align: center; }
+    .free-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(0,200,100,.1); border: 1px solid rgba(0,200,100,.25); border-radius: 50px; padding: 5px 14px; font-size: .78rem; color: #4ade80; font-weight: 600; margin-bottom: 20px; }
+
+    /* FOOTER */
+    footer { padding: 32px 24px; border-top: 1px solid var(--border); display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; }
+    footer p { font-size: .82rem; color: var(--gray); }
+
+    @keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .case-wrap { grid-template-columns: 1fr; }
+      .cta-box { padding: 40px 24px; }
+      .modal { padding: 36px 24px; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 60" height="70" style="width:auto"><defs><linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#4f8ef7"/><stop offset="100%" stop-color="#00d4ff"/></linearGradient></defs><circle cx="18" cy="24" r="12" fill="none" stroke="url(#logoGradient)" stroke-width="2"/><circle cx="18" cy="24" r="6" fill="none" stroke="url(#logoGradient)" stroke-width="1.5"/><rect x="16" y="10" width="4" height="4" fill="url(#logoGradient)"/><rect x="16" y="38" width="4" height="4" fill="url(#logoGradient)"/><rect x="4" y="22" width="4" height="4" fill="url(#logoGradient)"/><rect x="32" y="22" width="4" height="4" fill="url(#logoGradient)"/><circle cx="10" cy="30" r="3" fill="url(#logoGradient)"/><circle cx="26" cy="30" r="3" fill="url(#logoGradient)"/><line x1="13" y1="30" x2="23" y2="30" stroke="url(#logoGradient)" stroke-width="1.5"/><path d="M 30 16 L 36 20 L 32 24" fill="none" stroke="url(#logoGradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text x="50" y="28" font-family="Inter,Arial,sans-serif" font-size="24" font-weight="900" fill="white">automade</text><text x="50" y="44" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="600" fill="url(#logoGradient)">SOLUTIONS</text></svg></div>
+    <a href="index.html" class="nav-back">← Terug naar home</a>
+    <button onclick="openModal()" class="nav-cta">Gratis kennismaking</button>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-inner">
+      <div class="hero-badge">Speciaal voor horeca &amp; restaurants</div>
+      <h1>Jouw restaurant op<br /><span>de automatische piloot</span></h1>
+      <p class="hero-sub">Feestverzoeken, facturen, klantemails — ik bouw een AI-systeem dat dit allemaal voor je regelt. Zodat jij je focust op de keuken.</p>
+      <div class="hero-btns">
+        <button onclick="openModal()" class="btn-primary">Gratis kennismaking →</button>
+        <a href="#case" class="btn-ghost">Bekijk wat ik gebouwd heb</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PIJNPUNTEN -->
+  <section id="pijn">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Herkenbaar?</p>
+        <h2 class="section-title">Dit kost horecabedrijven de meeste tijd</h2>
+      </div>
+      <div class="pijn-grid reveal">
+        <div class="pijn-card">
+          <div class="pijn-icon">📞</div>
+          <h3>Feestverzoeken handmatig afhandelen</h3>
+          <p>Elk verzoek apart beantwoorden, dezelfde vragen steeds opnieuw, offertes uittypen...</p>
+        </div>
+        <div class="pijn-card">
+          <div class="pijn-icon">🧾</div>
+          <h3>Facturen handmatig opstellen</h3>
+          <p>Klantgegevens invullen, bedragen uitrekenen, PDF maken, mailen — voor elke factuur opnieuw.</p>
+        </div>
+        <div class="pijn-card">
+          <div class="pijn-icon">📧</div>
+          <h3>Steeds dezelfde emails sturen</h3>
+          <p>Bevestigingen, herinneringen, nazorg — handmatig typwerk dat je elke week opnieuw doet.</p>
+        </div>
+        <div class="pijn-card">
+          <div class="pijn-icon">⏰</div>
+          <h3>Administratie na sluitingstijd</h3>
+          <p>Na een drukke dienst nog uren achter de computer. Dat vreet energie en vrije tijd.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE -->
+  <section id="case">
+    <div class="container">
+      <div class="case-wrap reveal">
+        <div class="case-visual">
+          <h3>🍕 Wat ik gebouwd heb voor restaurants</h3>
+          <div class="feature-list">
+            <div class="feature">
+              <div class="feature-icon">📋</div>
+              <div class="feature-text">
+                <h4>Feestverzoeken automatisch</h4>
+                <p>Verzoek binnenkomt → systeem stuurt direct gepersonaliseerde info-email terug</p>
+              </div>
+            </div>
+            <div class="feature">
+              <div class="feature-icon">🧾</div>
+              <div class="feature-text">
+                <h4>Facturen in één klik</h4>
+                <p>Klantgegevens invullen, op knop drukken → professionele PDF factuur klaar om te versturen</p>
+              </div>
+            </div>
+            <div class="feature">
+              <div class="feature-icon">✉️</div>
+              <div class="feature-text">
+                <h4>Slimme e-mailtemplates</h4>
+                <p>Naam, datum, bedrag — alles wordt automatisch ingevuld. Geen typfouten meer.</p>
+              </div>
+            </div>
+            <div class="feature">
+              <div class="feature-icon">👥</div>
+              <div class="feature-text">
+                <h4>Klantbeheer</h4>
+                <p>Alle klanten en bestellingen op één plek. Altijd overzicht.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="case-content">
+          <p class="section-label">Gebouwd voor horeca</p>
+          <h2 class="section-title">Zo ziet het er in de praktijk uit</h2>
+          <p>Ik bouw volledige beheersystemen voor restaurants. Feestverzoeken worden automatisch beantwoord met een gepersonaliseerde email. Facturen maak je in één klik aan als PDF. En alle klantgegevens staan op één centrale plek.</p>
+          <p>Het resultaat: de administratie die normaal uren kostte, is nu een kwestie van minuten.</p>
+          <p style="margin-top:24px;">
+            <button onclick="openModal()" class="btn-primary">Wil je dit ook? →</button>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOE HET WERKT -->
+  <section id="hoe">
+    <div class="container" style="text-align:center;">
+      <p class="section-label">Hoe het werkt</p>
+      <h2 class="section-title">Volledig risico-vrij</h2>
+      <div class="steps reveal">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h3>Vertel waar je tijd aan kwijt bent <span class="free-tag">— gratis</span></h3>
+            <p>Vul het formulier in. Ik kijk of en hoe ik het kan automatiseren.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h3>Ik bouw het systeem <span class="free-tag">— gratis</span></h3>
+            <p>Als ik het kan bouwen, doe ik dat. Zonder kosten vooraf.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h3>14 dagen gratis uitproberen <span class="free-tag">— gratis</span></h3>
+            <p>Je test het systeem in de praktijk. Geen betaling, geen risico.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h3>Tevreden? Dan pas betaal je</h3>
+            <p>Alleen als je blij bent, volgt een lage maandelijkse vergoeding. Anders niet.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta">
+    <div class="container">
+      <div class="cta-box reveal">
+        <h2>Klaar om tijd te besparen?</h2>
+        <p>Vertel me waar jouw restaurant de meeste tijd aan kwijt is.<br />Gratis kennismaking, geen verplichtingen.</p>
+        <button onclick="openModal()" class="btn-primary">Gratis kennismaking aanvragen →</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 60" height="70" style="width:auto"><defs><linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#4f8ef7"/><stop offset="100%" stop-color="#00d4ff"/></linearGradient></defs><circle cx="18" cy="24" r="12" fill="none" stroke="url(#logoGradient)" stroke-width="2"/><circle cx="18" cy="24" r="6" fill="none" stroke="url(#logoGradient)" stroke-width="1.5"/><rect x="16" y="10" width="4" height="4" fill="url(#logoGradient)"/><rect x="16" y="38" width="4" height="4" fill="url(#logoGradient)"/><rect x="4" y="22" width="4" height="4" fill="url(#logoGradient)"/><rect x="32" y="22" width="4" height="4" fill="url(#logoGradient)"/><circle cx="10" cy="30" r="3" fill="url(#logoGradient)"/><circle cx="26" cy="30" r="3" fill="url(#logoGradient)"/><line x1="13" y1="30" x2="23" y2="30" stroke="url(#logoGradient)" stroke-width="1.5"/><path d="M 30 16 L 36 20 L 32 24" fill="none" stroke="url(#logoGradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text x="50" y="28" font-family="Inter,Arial,sans-serif" font-size="24" font-weight="900" fill="white">automade</text><text x="50" y="44" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="600" fill="url(#logoGradient)">SOLUTIONS</text></svg></div>
+    <p>Brent Jansen · brentjansen.ai.building@gmail.com · +31 39892324</p>
+    <p style="color:#444;">© 2026 automade solutions</p>
+  </footer>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div class="free-badge">✅ 100% gratis kennismaking</div>
+      <h3>Vertel me over jouw restaurant</h3>
+      <p class="modal-sub">Vul het formulier in en ik kijk wat AI voor jou kan doen.</p>
+      <form id="contactForm" action="https://formspree.io/f/xyknazww" method="POST">
+        <input type="hidden" name="branche" value="Horeca" />
+        <div class="form-row">
+          <div class="form-group">
+            <label for="f-naam">Jouw naam</label>
+            <input type="text" id="f-naam" name="naam" placeholder="Jan de Vries" required />
+          </div>
+          <div class="form-group">
+            <label for="f-bedrijf">Restaurantnaam</label>
+            <input type="text" id="f-bedrijf" name="bedrijf" placeholder="Restaurant de Vries" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="f-email">E-mailadres</label>
+          <input type="email" id="f-email" name="email" placeholder="jij@restaurant.nl" required />
+        </div>
+        <div class="form-group">
+          <label for="f-tijd">Waar ben je het meeste tijd aan kwijt?</label>
+          <textarea id="f-tijd" name="tijdverlies" placeholder="Bijv: elke dag feestverzoeken handmatig beantwoorden, facturen opmaken..." required></textarea>
+        </div>
+        <button type="submit" class="btn-primary">Verstuur →</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    function openModal() { document.getElementById('modalOverlay').classList.add('open'); document.body.style.overflow = 'hidden'; }
+    function closeModal() { document.getElementById('modalOverlay').classList.remove('open'); document.body.style.overflow = ''; }
+    function closeModalOutside(e) { if (e.target === document.getElementById('modalOverlay')) closeModal(); }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+    async function submitForm(e) {
+      e.preventDefault();
+      const form = document.getElementById('contactForm');
+      const btn = form.querySelector('button[type="submit"]');
+      btn.textContent = 'Bezig met verzenden...'; btn.disabled = true;
+      const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } });
+      if (res.ok) {
+        form.innerHTML = `<div style="text-align:center;padding:20px 0;"><div style="font-size:3rem;margin-bottom:16px;">✅</div><h3>Verstuurd!</h3><p style="color:var(--gray);margin-top:12px;">Bedankt! Ik neem zo snel mogelijk contact op.</p><button onclick="closeModal()" class="btn-primary" style="margin-top:24px;border:none;cursor:pointer;font-family:inherit;">Sluiten</button></div>`;
+      } else { btn.textContent = 'Fout — probeer opnieuw'; btn.disabled = false; }
+    }
+  </script>
+</body>
+</html>
