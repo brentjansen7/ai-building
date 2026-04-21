@@ -969,12 +969,12 @@
           </div>
 
           <div class="about-contact">
-            <a href="mailto:brentjansen.ai.building@gmail.com" class="chip solid">
+            <button onclick="copyToClipboard('brentjansen.ai.building@gmail.com', this)" class="chip solid" title="Klik om te kopieren">
               ✉ brentjansen.ai.building@gmail.com
-            </a>
-            <a href="tel:+3139892324" class="chip">
+            </button>
+            <button onclick="copyToClipboard('+3139892324', this)" class="chip" title="Klik om te kopieren">
               ☎ +31 39892324
-            </a>
+            </button>
           </div>
         </div>
       </div>
@@ -1074,6 +1074,23 @@
 
   <!-- ===== JS ===== -->
   <script>
+    // Copy to clipboard
+    function copyToClipboard(text, el) {
+      navigator.clipboard.writeText(text).then(() => {
+        const original = el.textContent;
+        el.textContent = '✓ Gekopieerd!';
+        el.style.background = 'var(--accent)';
+        el.style.borderColor = 'var(--accent)';
+        el.style.color = 'var(--paper)';
+        setTimeout(() => {
+          el.textContent = original;
+          el.style.background = '';
+          el.style.borderColor = '';
+          el.style.color = '';
+        }, 2000);
+      });
+    }
+
     // Scroll reveal
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => {
