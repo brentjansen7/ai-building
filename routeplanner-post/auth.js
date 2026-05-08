@@ -83,9 +83,18 @@ export async function signIn(email, password) {
   return data.user;
 }
 
+function getOAuthRedirectUrl() {
+  const isDev = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+  if (isDev) {
+    return window.location.origin + window.location.pathname.replace(/[^/]*$/, '') + 'auth-callback.html';
+  }
+  return 'https://brentjansen7.github.io/ai-building/routeplanner-post/auth-callback.html';
+}
+
 export async function signInWithGoogle() {
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: 'google',
+    options: { redirectTo: getOAuthRedirectUrl() },
   });
   if (error) throw error;
   return data;
@@ -94,6 +103,7 @@ export async function signInWithGoogle() {
 export async function signInWithApple() {
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: 'apple',
+    options: { redirectTo: getOAuthRedirectUrl() },
   });
   if (error) throw error;
   return data;
