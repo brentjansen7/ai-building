@@ -83,15 +83,9 @@ export async function signIn(email, password) {
   return data.user;
 }
 
-function getCallbackUrl() {
-  const base = window.location.href.replace(/[^/]*(?:\?.*)?(?:#.*)?$/, '');
-  return base + 'auth-callback.html';
-}
-
 export async function signInWithGoogle() {
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: 'google',
-    options: { redirectTo: getCallbackUrl() },
   });
   if (error) throw error;
   return data;
@@ -100,7 +94,6 @@ export async function signInWithGoogle() {
 export async function signInWithApple() {
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: 'apple',
-    options: { redirectTo: getCallbackUrl() },
   });
   if (error) throw error;
   return data;
