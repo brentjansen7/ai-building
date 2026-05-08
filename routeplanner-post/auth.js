@@ -1,8 +1,8 @@
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.0/+esm';
+import { ENV } from './config.js';
 
-// Load from window.ENV (set in config.js) or localStorage
-let supabaseUrl = window.ENV?.SUPABASE_URL || localStorage.getItem('ENV_SUPABASE_URL') || '';
-let supabaseAnonKey = window.ENV?.SUPABASE_ANON_KEY || localStorage.getItem('ENV_SUPABASE_ANON_KEY') || '';
+let supabaseUrl = ENV.SUPABASE_URL || localStorage.getItem('ENV_SUPABASE_URL') || '';
+let supabaseAnonKey = ENV.SUPABASE_ANON_KEY || localStorage.getItem('ENV_SUPABASE_ANON_KEY') || '';
 
 const hasRealCredentials = !!(supabaseUrl && supabaseAnonKey);
 
