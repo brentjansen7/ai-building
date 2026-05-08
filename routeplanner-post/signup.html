@@ -76,6 +76,42 @@
         }
         button:hover { background: #5568d3; }
         button:disabled { background: #ccc; cursor: not-allowed; }
+        .oauth-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 12px;
+            background: white;
+            color: #1a1a1a;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.15s, border-color 0.15s;
+            margin-bottom: 12px;
+        }
+        .oauth-btn:hover { background: #f7f7f8; border-color: #bbb; }
+        .oauth-btn svg { width: 18px; height: 18px; }
+        .oauth-apple { background: #000; color: #fff; border-color: #000; }
+        .oauth-apple:hover { background: #1a1a1a; border-color: #1a1a1a; }
+        .apple-disabled { display: none; }
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #999;
+            font-size: 12px;
+            margin: 16px 0 24px;
+        }
+        .divider::before, .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #e5e5e5;
+        }
         .error {
             color: #dc3545;
             font-size: 14px;
@@ -112,6 +148,25 @@
         <p class="subtitle">14 dagen gratis proberen</p>
 
         <div id="message"></div>
+
+        <button type="button" class="oauth-btn" id="googleBtn" aria-label="Aanmelden met Google">
+            <svg viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844a4.14 4.14 0 0 1-1.796 2.716v2.258h2.908c1.702-1.567 2.684-3.874 2.684-6.615z"/>
+                <path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18z"/>
+                <path fill="#FBBC05" d="M3.964 10.71A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.71V4.958H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.042l3.007-2.332z"/>
+                <path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.958L3.964 7.29C4.672 5.163 6.656 3.58 9 3.58z"/>
+            </svg>
+            Aanmelden met Google
+        </button>
+
+        <button type="button" class="oauth-btn oauth-apple apple-disabled" id="appleBtn" aria-label="Aanmelden met Apple">
+            <svg viewBox="0 0 14 17" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="currentColor">
+                <path d="M11.624 8.96c-.014-2.346 1.916-3.474 2.004-3.528-1.092-1.594-2.79-1.812-3.392-1.836-1.444-.146-2.82.852-3.554.852-.744 0-1.872-.83-3.078-.806C2.05 3.66.594 4.55-.21 5.96c-1.69 2.926-.43 7.252 1.21 9.628.802 1.162 1.762 2.466 3.018 2.42 1.21-.05 1.668-.784 3.13-.784 1.464 0 1.876.784 3.156.76 1.302-.024 2.13-1.184 2.928-2.354.92-1.352 1.302-2.66 1.32-2.728-.028-.014-2.532-.974-2.558-3.864zM9.252 2.04C9.91 1.236 10.354.12 10.232-1c-.95.038-2.1.632-2.78 1.434-.61.71-1.144 1.846-1 2.946 1.06.082 2.142-.54 2.8-1.34z"/>
+            </svg>
+            Aanmelden met Apple
+        </button>
+
+        <div class="divider">of meld aan met email</div>
 
         <form id="signupForm">
             <div class="form-group">
@@ -151,16 +206,43 @@
 
     <script src="config.js"></script>
     <script type="module">
-        import { signUp, onAuthStateChange } from './auth.js';
+        import { signUp, signInWithGoogle, signInWithApple, onAuthStateChange } from './auth.js';
 
         const form = document.getElementById('signupForm');
         const submitBtn = document.getElementById('submitBtn');
         const messageDiv = document.getElementById('message');
+        const googleBtn = document.getElementById('googleBtn');
+        const appleBtn = document.getElementById('appleBtn');
 
         // Check if already logged in
         onAuthStateChange((event, session) => {
             if (session) {
                 window.location.href = 'index.html';
+            }
+        });
+
+        googleBtn.addEventListener('click', async () => {
+            googleBtn.disabled = true;
+            messageDiv.innerHTML = '';
+            try {
+                await signInWithGoogle();
+            } catch (error) {
+                messageDiv.innerHTML = `<div class="error">❌ ${error.message}</div>`;
+                googleBtn.disabled = false;
+            }
+        });
+
+        // Apple-knop is uitgeschakeld via class .apple-disabled. Activeer:
+        // 1) Configureer Apple provider in Supabase Dashboard
+        // 2) Verwijder 'apple-disabled' class van de knop in de HTML hierboven
+        appleBtn.addEventListener('click', async () => {
+            appleBtn.disabled = true;
+            messageDiv.innerHTML = '';
+            try {
+                await signInWithApple();
+            } catch (error) {
+                messageDiv.innerHTML = `<div class="error">❌ ${error.message}</div>`;
+                appleBtn.disabled = false;
             }
         });
 
