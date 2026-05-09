@@ -117,7 +117,6 @@
         </form>
     </div>
 
-    <script src="config.js"></script>
     <script type="module">
         import { acceptInvite, onAuthStateChange } from './auth.js';
 
@@ -125,12 +124,20 @@
         const submitBtn = document.getElementById('submitBtn');
         const messageDiv = document.getElementById('message');
 
+        function showMsg(text, kind) {
+            messageDiv.textContent = '';
+            const div = document.createElement('div');
+            div.className = kind;
+            div.textContent = text;
+            messageDiv.appendChild(div);
+        }
+
         // Get token from URL
         const params = new URLSearchParams(window.location.search);
         const token = params.get('token');
 
         if (!token) {
-            messageDiv.innerHTML = '<div class="error">❌ Geen uitnodiging token gevonden</div>';
+            showMsg('❌ Geen uitnodiging token gevonden', 'error');
             form.style.display = 'none';
         }
 
@@ -145,13 +152,13 @@
             e.preventDefault();
             submitBtn.disabled = true;
             form.classList.add('loading');
-            messageDiv.innerHTML = '';
+            messageDiv.textContent = '';
 
             const fullName = document.getElementById('fullName').value;
             const password = document.getElementById('password').value;
 
             if (password.length < 8) {
-                messageDiv.innerHTML = '<div class="error">❌ Wachtwoord moet minstens 8 karakters zijn</div>';
+                showMsg('❌ Wachtwoord moet minstens 8 karakters zijn', 'error');
                 submitBtn.disabled = false;
                 form.classList.remove('loading');
                 return;
@@ -159,18 +166,18 @@
 
             try {
                 await acceptInvite(token, password, fullName);
-                messageDiv.innerHTML = '<div class="success">✓ Account aangemaakt! Omleiding...</div>';
+                showMsg('✓ Account aangemaakt! Omleiding...', 'success');
                 setTimeout(() => {
                     window.location.href = 'index.html';
                 }, 500);
             } catch (error) {
-                let message = error.message;
+                let message = error.message || 'Onbekende fout';
                 if (message.includes('expired')) {
-                    message = 'Deze uitnodiging is verlopen';
+                    message = 'Deze uitnodiging is verlopen of ongeldig';
                 } else if (message.includes('already registered')) {
                     message = 'Dit email adres is al in gebruik';
                 }
-                messageDiv.innerHTML = `<div class="error">❌ ${message}</div>`;
+                showMsg('❌ ' + message, 'error');
                 submitBtn.disabled = false;
                 form.classList.remove('loading');
             }

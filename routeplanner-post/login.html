@@ -190,6 +190,14 @@
         const googleBtn = document.getElementById('googleBtn');
         const appleBtn = document.getElementById('appleBtn');
 
+        function showMsg(text, kind) {
+            messageDiv.textContent = '';
+            const div = document.createElement('div');
+            div.className = kind;
+            div.textContent = text;
+            messageDiv.appendChild(div);
+        }
+
         // Check if already logged in
         onAuthStateChange((event, session) => {
             if (session) {
@@ -199,11 +207,11 @@
 
         googleBtn.addEventListener('click', async () => {
             googleBtn.disabled = true;
-            messageDiv.innerHTML = '';
+            messageDiv.textContent = '';
             try {
                 await signInWithGoogle();
             } catch (error) {
-                messageDiv.innerHTML = `<div class="error">❌ ${error.message}</div>`;
+                showMsg('❌ ' + (error.message || 'Inloggen mislukt'), 'error');
                 googleBtn.disabled = false;
             }
         });
@@ -213,11 +221,11 @@
         // 2) Verwijder 'apple-disabled' van de knop in de HTML hierboven
         appleBtn.addEventListener('click', async () => {
             appleBtn.disabled = true;
-            messageDiv.innerHTML = '';
+            messageDiv.textContent = '';
             try {
                 await signInWithApple();
             } catch (error) {
-                messageDiv.innerHTML = `<div class="error">❌ ${error.message}</div>`;
+                showMsg('❌ ' + (error.message || 'Inloggen mislukt'), 'error');
                 appleBtn.disabled = false;
             }
         });
@@ -226,19 +234,19 @@
             e.preventDefault();
             submitBtn.disabled = true;
             form.classList.add('loading');
-            messageDiv.innerHTML = '';
+            messageDiv.textContent = '';
 
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
 
             try {
                 await signIn(email, password);
-                messageDiv.innerHTML = '<div class="success">✓ Ingelogd! Omleiding...</div>';
+                showMsg('✓ Ingelogd! Omleiding...', 'success');
                 setTimeout(() => {
                     window.location.href = 'index.html';
                 }, 500);
             } catch (error) {
-                messageDiv.innerHTML = `<div class="error">❌ ${error.message}</div>`;
+                showMsg('❌ ' + (error.message || 'Inloggen mislukt'), 'error');
                 submitBtn.disabled = false;
                 form.classList.remove('loading');
             }

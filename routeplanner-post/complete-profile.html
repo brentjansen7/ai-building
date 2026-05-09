@@ -142,18 +142,26 @@
             const kvk = document.getElementById('kvk').value.trim();
             const billingAddress = document.getElementById('billingAddress').value.trim();
 
+            const showMsg = (text, kind) => {
+                messageDiv.textContent = '';
+                const div = document.createElement('div');
+                div.className = kind;
+                div.textContent = text;
+                messageDiv.appendChild(div);
+            };
+
             try {
                 const currentUser = await getCurrentUser();
                 if (!currentUser) throw new Error('Geen actieve sessie. Log opnieuw in.');
                 await completeOAuthProfile(currentUser, companyName, kvk, billingAddress);
-                messageDiv.innerHTML = '<div class="success">✓ Account voltooid! Omleiding…</div>';
+                showMsg('✓ Account voltooid! Omleiding…', 'success');
                 setTimeout(() => { window.location.href = 'index.html'; }, 600);
             } catch (error) {
-                let message = error.message;
-                if (error.message?.includes('duplicate') || error.message?.includes('unique')) {
+                let message = error.message || 'Onbekende fout';
+                if (message.includes('duplicate') || message.includes('unique')) {
                     message = 'Dit KvK-nummer is al geregistreerd';
                 }
-                messageDiv.innerHTML = `<div class="error">❌ ${message}</div>`;
+                showMsg('❌ ' + message, 'error');
                 submitBtn.disabled = false;
                 form.classList.remove('loading');
             }

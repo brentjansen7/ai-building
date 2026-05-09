@@ -163,8 +163,14 @@ export async function getCompanyDrivers(companyId) {
   return data || [];
 }
 
+function generateSecureToken() {
+  const bytes = new Uint8Array(32);
+  crypto.getRandomValues(bytes);
+  return Array.from(bytes, b => b.toString(16).padStart(2, '0')).join('');
+}
+
 export async function createInvite(companyId, email) {
-  const token = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+  const token = generateSecureToken();
   const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString();
 
   const { data, error } = await supabase
@@ -183,15 +189,12 @@ export async function createInvite(companyId, email) {
 }
 
 export async function acceptInvite(token, password, fullName) {
-  const { data: invite, error: inviteError } = await supabase
-    .from('invites')
-    .select('*')
-    .eq('token', token)
-    .single();
+  const { data: lookup, error: lookupError } = await supabase
+    .rpc('lookup_invite', { invite_token: token });
 
-  if (inviteError) throw inviteError;
-  if (!invite) throw new Error('Invalid invite token');
-  if (new Date(invite.expires_at) < new Date()) throw new Error('Invite expired');
+  if (lookupError) throw lookupError;
+  const invite = Array.isArray(lookup) ? lookup[0] : lookup;
+  if (!invite || !invite.valid) throw new Error('Invite expired');
 
   const { data: { user }, error: signupError } = await supabase.auth.signUp({
     email: invite.email,
@@ -213,14 +216,22 @@ export async function acceptInvite(token, password, fullName) {
 
   if (profileError) throw profileError;
 
-  const { error: updateError } = await supabase
-    .from('invites')
-    .update({ used_at: new Date().toISOString() })
-    .eq('id', invite.id);
+  const { error: markError } = await supabase
+    .rpc('mark_invite_used', { invite_token: token });
 
-  if (updateError) throw updateError;
+  if (markError) throw markError;
 
   return user;
+}
+
+export function escapeHtml(value) {
+  return String(value ?? '').replace(/[&<>"']/g, c => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;',
+  }[c]));
 }
 
 export function onAuthStateChange(callback) {

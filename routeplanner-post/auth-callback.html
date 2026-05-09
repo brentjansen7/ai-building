@@ -69,7 +69,18 @@
             titleEl.textContent = 'Er ging iets mis';
             subtitleEl.textContent = '';
             spinnerEl.style.display = 'none';
-            messageEl.innerHTML = `<div class="error">${text}</div><p style="margin-top:16px;"><a href="login.html">Terug naar inloggen</a></p>`;
+            messageEl.textContent = '';
+            const errDiv = document.createElement('div');
+            errDiv.className = 'error';
+            errDiv.textContent = text;
+            const linkP = document.createElement('p');
+            linkP.style.marginTop = '16px';
+            const link = document.createElement('a');
+            link.href = 'login.html';
+            link.textContent = 'Terug naar inloggen';
+            linkP.appendChild(link);
+            messageEl.appendChild(errDiv);
+            messageEl.appendChild(linkP);
         }
 
         // OAuth fout in URL hash (bv. user_denied_access)

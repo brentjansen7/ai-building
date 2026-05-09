@@ -135,26 +135,31 @@
         </div>
     </div>
 
-    <script src="config.js"></script>
     <script type="module">
-        import { getCurrentProfile, getCompanyDrivers, createInvite, signOut, onAuthStateChange } from './auth.js';
+        import { getCurrentProfile, getCompanyDrivers, createInvite, signOut, onAuthStateChange, escapeHtml } from './auth.js';
 
         let profile = null;
 
-        // Check auth
+        function showMessage(target, text, kind) {
+            target.textContent = '';
+            const div = document.createElement('div');
+            div.className = kind;
+            div.textContent = text;
+            target.appendChild(div);
+        }
+
         onAuthStateChange(async (event, session) => {
             if (!session) {
                 window.location.href = 'login.html';
                 return;
             }
-            if (!session && profile?.role !== 'owner') {
-                window.location.href = 'index.html';
-                return;
-            }
 
             profile = await getCurrentProfile();
             if (profile?.role !== 'owner') {
-                document.body.innerHTML = '<h1>❌ Alleen eigenaren hebben toegang</h1>';
+                document.body.textContent = '';
+                const h = document.createElement('h1');
+                h.textContent = '❌ Alleen eigenaren hebben toegang';
+                document.body.appendChild(h);
                 return;
             }
 
@@ -177,8 +182,8 @@
             list.innerHTML = drivers.map(d => `
                 <div class="driver-item">
                     <div>
-                        <div class="driver-name">${d.full_name || 'Naamloos'}</div>
-                        <div class="driver-email">${d.email}</div>
+                        <div class="driver-name">${escapeHtml(d.full_name || 'Naamloos')}</div>
+                        <div class="driver-email">${escapeHtml(d.email)}</div>
                     </div>
                 </div>
             `).join('');
@@ -191,16 +196,24 @@
             const email = document.getElementById('driverEmail').value;
 
             btn.disabled = true;
-            msg.innerHTML = '';
+            msg.textContent = '';
 
             try {
                 const invite = await createInvite(profile.company_id, email);
-                const link = `${window.location.origin}/invite.html?token=${invite.token}`;
-                msg.innerHTML = `<div class="success">✓ Uitnodiging verstuurd!<br><small>Link: ${link}</small></div>`;
+                const link = `${window.location.origin}/ai-building/routeplanner-post/invite.html?token=${encodeURIComponent(invite.token)}`;
+                msg.textContent = '';
+                const wrap = document.createElement('div');
+                wrap.className = 'success';
+                wrap.textContent = '✓ Uitnodiging verstuurd! Link: ';
+                const small = document.createElement('small');
+                small.textContent = link;
+                wrap.appendChild(document.createElement('br'));
+                wrap.appendChild(small);
+                msg.appendChild(wrap);
                 document.getElementById('driverEmail').value = '';
                 loadDrivers();
             } catch (error) {
-                msg.innerHTML = `<div class="error">❌ ${error.message}</div>`;
+                showMessage(msg, '❌ ' + error.message, 'error');
             } finally {
                 btn.disabled = false;
             }

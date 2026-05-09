@@ -110,11 +110,9 @@
         </div>
     </div>
 
-    <script src="config.js"></script>
     <script type="module">
-        import { supabase, getCurrentUser, onAuthStateChange, signOut } from './auth.js';
+        import { supabase, getCurrentUser, onAuthStateChange, signOut, escapeHtml } from './auth.js';
 
-        // Admin check
         const ADMIN_EMAILS = ['brent.jansen2009@gmail.com'];
 
         onAuthStateChange(async (event, session) => {
@@ -125,7 +123,11 @@
 
             const user = await getCurrentUser();
             if (!ADMIN_EMAILS.includes(user?.email)) {
-                document.body.innerHTML = '<h1 style="margin-top:50px;text-align:center;">❌ Geen toegang — alleen admin</h1>';
+                document.body.textContent = '';
+                const h = document.createElement('h1');
+                h.style.cssText = 'margin-top:50px;text-align:center;';
+                h.textContent = '❌ Geen toegang — alleen admin';
+                document.body.appendChild(h);
                 return;
             }
 
@@ -138,22 +140,30 @@
                 .select('*, profiles(email, full_name, role)');
 
             if (error) {
-                document.getElementById('message').innerHTML = `<div class="error">❌ ${error.message}</div>`;
+                const msg = document.getElementById('message');
+                msg.textContent = '';
+                const div = document.createElement('div');
+                div.className = 'error';
+                div.textContent = '❌ ' + error.message;
+                msg.appendChild(div);
                 return;
             }
 
             const tbody = document.getElementById('companiesList');
+            const allowedStatus = new Set(['active', 'trial', 'expired']);
             tbody.innerHTML = companies.map(c => {
                 const drivers = c.profiles?.filter(p => p.role === 'driver').length || 0;
-                const trialDate = new Date(c.trial_ends_at).toLocaleDateString('nl-NL');
+                const trialDate = c.trial_ends_at ? new Date(c.trial_ends_at).toLocaleDateString('nl-NL') : '—';
+                const ownerEmail = c.profiles?.find(p => p.role === 'owner')?.email || '?';
+                const statusClass = allowedStatus.has(c.plan_status) ? c.plan_status : 'trial';
                 return `
                     <tr>
-                        <td><strong>${c.name}</strong></td>
-                        <td>${c.kvk}</td>
-                        <td><span class="status ${c.plan_status}">${c.plan_status}</span></td>
-                        <td>${c.profiles?.find(p => p.role === 'owner')?.email || '?'}</td>
+                        <td><strong>${escapeHtml(c.name)}</strong></td>
+                        <td>${escapeHtml(c.kvk)}</td>
+                        <td><span class="status ${statusClass}">${escapeHtml(c.plan_status)}</span></td>
+                        <td>${escapeHtml(ownerEmail)}</td>
                         <td>${drivers}</td>
-                        <td>${trialDate}</td>
+                        <td>${escapeHtml(trialDate)}</td>
                     </tr>
                 `;
             }).join('');
