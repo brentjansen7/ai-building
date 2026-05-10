@@ -112,7 +112,7 @@
             <div class="form-group">
                 <label for="password">Wachtwoord</label>
                 <input type="password" id="password" name="password" required autocomplete="new-password" />
-                <p class="help-text">Min. 8 karakters</p>
+                <p class="help-text">Min. 10 karakters, met letters en cijfers</p>
             </div>
 
             <button type="submit" id="submitBtn">Account aanmaken</button>
@@ -120,7 +120,7 @@
     </div>
 
     <script type="module">
-        import { acceptInvite, onAuthStateChange } from './auth.js';
+        import { acceptInvite, onAuthStateChange, validatePassword } from './auth.js';
 
         const form = document.getElementById('inviteForm');
         const submitBtn = document.getElementById('submitBtn');
@@ -159,8 +159,9 @@
             const fullName = document.getElementById('fullName').value;
             const password = document.getElementById('password').value;
 
-            if (password.length < 8) {
-                showMsg('❌ Wachtwoord moet minstens 8 karakters zijn', 'error');
+            const pwError = validatePassword(password);
+            if (pwError) {
+                showMsg('❌ ' + pwError, 'error');
                 submitBtn.disabled = false;
                 form.classList.remove('loading');
                 return;

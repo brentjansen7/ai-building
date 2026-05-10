@@ -1,18 +1,13 @@
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.0/+esm';
 import { ENV } from './config.js';
 
-let supabaseUrl = ENV.SUPABASE_URL || localStorage.getItem('ENV_SUPABASE_URL') || '';
-let supabaseAnonKey = ENV.SUPABASE_ANON_KEY || localStorage.getItem('ENV_SUPABASE_ANON_KEY') || '';
+const supabaseUrl = ENV.SUPABASE_URL || '';
+const supabaseAnonKey = ENV.SUPABASE_ANON_KEY || '';
 
 const hasRealCredentials = !!(supabaseUrl && supabaseAnonKey);
 
 if (!hasRealCredentials) {
-  if (!window.location.pathname.includes('setup.html')) {
-    console.warn('⚠️ Missing Supabase credentials. Redirecting to setup...');
-    window.location.href = 'setup.html';
-  }
-  supabaseUrl = supabaseUrl || 'https://placeholder.supabase.co';
-  supabaseAnonKey = supabaseAnonKey || 'placeholder-key';
+  console.error('Missing Supabase credentials in config.js');
 }
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
@@ -222,6 +217,23 @@ export async function acceptInvite(token, password, fullName) {
   if (markError) throw markError;
 
   return user;
+}
+
+export function validatePassword(password) {
+  if (typeof password !== 'string' || password.length < 10) {
+    return 'Wachtwoord moet minstens 10 karakters zijn';
+  }
+  if (!/[a-zA-Z]/.test(password)) {
+    return 'Wachtwoord moet minstens één letter bevatten';
+  }
+  if (!/[0-9]/.test(password)) {
+    return 'Wachtwoord moet minstens één cijfer bevatten';
+  }
+  const common = ['wachtwoord', 'password', '1234567890', 'qwertyuiop', 'azertyuiop'];
+  if (common.includes(password.toLowerCase())) {
+    return 'Dit wachtwoord is te makkelijk te raden';
+  }
+  return null;
 }
 
 export function escapeHtml(value) {

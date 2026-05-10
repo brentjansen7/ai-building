@@ -2102,9 +2102,19 @@ function initApp() {
                 const qrDiv = btn.closest('div[style]').nextElementSibling;
                 if (qrDiv.style.display === 'none') {
                     qrDiv.style.display = '';
-                    qrDiv.innerHTML = `<img src="${btn.dataset.qr}" alt="QR code bezorger"
-                        style="border-radius:8px;border:1px solid #ddd;" />
-                        <p style="font-size:11px;color:#888;margin:4px 0 0;">Laat bezorger scannen</p>`;
+                    qrDiv.textContent = '';
+                    const qrSrc = btn.dataset.qr;
+                    if (qrSrc && qrSrc.startsWith('https://api.qrserver.com/')) {
+                        const img = document.createElement('img');
+                        img.src = qrSrc;
+                        img.alt = 'QR code bezorger';
+                        img.style.cssText = 'border-radius:8px;border:1px solid #ddd;';
+                        const p = document.createElement('p');
+                        p.style.cssText = 'font-size:11px;color:#888;margin:4px 0 0;';
+                        p.textContent = 'Laat bezorger scannen';
+                        qrDiv.appendChild(img);
+                        qrDiv.appendChild(p);
+                    }
                     btn.textContent = '✕ Verberg QR';
                 } else {
                     qrDiv.style.display = 'none';

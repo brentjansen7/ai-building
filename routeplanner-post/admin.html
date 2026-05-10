@@ -81,6 +81,8 @@
         }
         .error { background: #f8d7da; color: #dc3545; }
         .success { background: #d4edda; color: #155724; }
+        body { visibility: hidden; }
+        body.admin-ready { visibility: visible; }
     </style>
 </head>
 <body>
@@ -119,20 +121,17 @@
 
         onAuthStateChange(async (event, session) => {
             if (!session) {
-                window.location.href = 'login.html';
+                window.location.replace('login.html');
                 return;
             }
 
             const user = await getCurrentUser();
             if (!ADMIN_EMAILS.includes(user?.email)) {
-                document.body.textContent = '';
-                const h = document.createElement('h1');
-                h.style.cssText = 'margin-top:50px;text-align:center;';
-                h.textContent = '❌ Geen toegang — alleen admin';
-                document.body.appendChild(h);
+                window.location.replace('index.html');
                 return;
             }
 
+            document.body.classList.add('admin-ready');
             loadCompanies();
         });
 
