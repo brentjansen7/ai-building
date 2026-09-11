@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 162" width="520" height="162">
+
+  <!-- Background -->
+  <rect width="520" height="162" fill="white"/>
+
+  <!-- ===== ICON MARK ===== -->
+
+  <!-- Large gear: r_pitch=15, stroke-width=8 → teeth r=11–19 -->
+  <circle cx="38" cy="134" r="15" fill="none" stroke="#00BDD4" stroke-width="8" stroke-dasharray="7 4.2"/>
+  <circle cx="38" cy="134" r="11" fill="#00BDD4"/>
+  <circle cx="38" cy="134" r="4.5" fill="white"/>
+
+  <!-- Small gear: meshing with large, center offset ~25px -->
+  <circle cx="58" cy="148" r="10" fill="none" stroke="#00BDD4" stroke-width="6" stroke-dasharray="5 3"/>
+  <circle cx="58" cy="148" r="7" fill="#00BDD4"/>
+  <circle cx="58" cy="148" r="3" fill="white"/>
+
+  <!-- A shape — left leg -->
+  <polygon points="76,148 88,148 106,54 95,54" fill="#1B2C4B"/>
+  <!-- A shape — right leg (overlaps left at peak) -->
+  <polygon points="100,54 111,54 129,148 117,148" fill="#1B2C4B"/>
+  <!-- A shape — crossbar -->
+  <polygon points="84,110 123,110 121,123 86,123" fill="#1B2C4B"/>
+
+  <!-- Circuit traces on left leg of A (cyan) -->
+  <!-- Trace 1: horizontal + vertical elbow with open-circle node -->
+  <line x1="91" y1="76" x2="52" y2="76" stroke="#00BDD4" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="52" y1="76" x2="52" y2="93" stroke="#00BDD4" stroke-width="2.2" stroke-linecap="round"/>
+  <circle cx="52" cy="93" r="5" fill="none" stroke="#00BDD4" stroke-width="2.2"/>
+  <!-- dot mid-trace -->
+  <circle cx="70" cy="76" r="3" fill="#00BDD4"/>
+
+  <!-- Trace 2: horizontal with open-circle node -->
+  <line x1="88" y1="93" x2="43" y2="93" stroke="#00BDD4" stroke-width="2.2" stroke-linecap="round"/>
+  <circle cx="43" cy="93" r="5" fill="none" stroke="#00BDD4" stroke-width="2.2"/>
+
+  <!-- Trace 3: short horizontal at crossbar level, dot node -->
+  <line x1="84" y1="110" x2="64" y2="110" stroke="#00BDD4" stroke-width="2.2" stroke-linecap="round"/>
+  <circle cx="64" cy="110" r="3" fill="#00BDD4"/>
+
+  <!-- Node at peak of A -->
+  <circle cx="103" cy="54" r="3.5" fill="#00BDD4"/>
+
+  <!-- ===== WORDMARK ===== -->
+  <text x="150" y="108"
+    font-family="'Montserrat', 'Arial Black', Arial, sans-serif"
+    font-size="64" font-weight="900" letter-spacing="1">
+    <tspan fill="#1B2C4B">AUTO</tspan><tspan fill="#00BDD4">MADE</tspan>
+  </text>
+
+  <!-- Tagline -->
+  <text x="152" y="138"
+    font-family="'Montserrat', Arial, sans-serif"
+    font-size="19" font-weight="500" fill="#4A5A72" letter-spacing="0.5">
+    Krimpen aan den IJssel
+  </text>
+
+</svg>

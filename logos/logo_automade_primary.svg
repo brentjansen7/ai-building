@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 80" width="380" height="80">
+  <defs>
+    <linearGradient id="topFace" x1="14" y1="17" x2="62" y2="45" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#60A5FA"/>
+      <stop offset="100%" stop-color="#818CF8"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Isometric cube mark -->
+  <!-- Top face (brightest, lit from above) -->
+  <polygon points="38,17 62,31 38,45 14,31" fill="url(#topFace)"/>
+  <!-- Left face (mid blue) -->
+  <polygon points="14,31 38,45 38,73 14,59" fill="#2563EB"/>
+  <!-- Right face (deep purple) -->
+  <polygon points="38,45 62,31 62,59 38,73" fill="#6D28D9"/>
+  <!-- Subtle top-edge highlight for depth -->
+  <polyline points="14,31 38,17 62,31" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="1.2" stroke-linejoin="round"/>
+
+  <!-- Wordmark -->
+  <text
+    x="88" y="51"
+    font-family="'Inter', 'Helvetica Neue', Arial, sans-serif"
+    font-size="32" font-weight="800" letter-spacing="4"
+    fill="#0f172a">AUTOMADE</text>
+</svg>

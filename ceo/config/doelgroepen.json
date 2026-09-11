@@ -1,0 +1,29 @@
+{
+  "zorg": {
+    "referentie_klant": "Kuiper & Koning Fysiotherapie",
+    "referentie_product": "AI-tool die SOAP-verslagen schrijft in seconden",
+    "referentie_resultaat": "fysiotherapeuten minder tijd kwijt zijn aan administratie",
+    "branche_url": "https://brentjansen7.github.io/ai-building/zorg",
+    "zoekterm": "fysiotherapie OR fysiotherapeut OR thuiszorg OR zorgcentrum",
+    "uitsluit": "kuiper koning",
+    "email_opening_hint": "Noem iets specifieks van hun website: specialisatie, locatie, behandelmethode"
+  },
+  "logistiek": {
+    "referentie_klant": "een lokaal transportbedrijf",
+    "referentie_product": "routeplanner die adressen inscant en automatisch de snelste route berekent",
+    "referentie_resultaat": "chauffeurs minder tijd verspillen aan het handmatig plannen van routes",
+    "branche_url": "https://brentjansen7.github.io/ai-building/logistiek",
+    "zoekterm": "transportbedrijf OR logistiek OR koeriersbedrijf OR bezorgdienst OR apotheek OR medicijnbezorging",
+    "uitsluit": "",
+    "email_opening_hint": "Noem iets over hun dienstverlening: soort vracht, regio, klanttype"
+  },
+  "overig": {
+    "referentie_klant": "Spanino Pizza",
+    "referentie_product": "systeem dat feestverzoeken en facturen automatisch afhandelt",
+    "referentie_resultaat": "de eigenaar minder tijd kwijt is aan administratie en meer tijd heeft voor de keuken",
+    "branche_url": "https://brentjansen7.github.io/ai-building/horeca",
+    "zoekterm": "restaurant OR horeca OR cateraar OR lunchroom",
+    "uitsluit": "spanino",
+    "email_opening_hint": "Noem iets over het menu, sfeer of een review die je hebt gelezen"
+  }
+}

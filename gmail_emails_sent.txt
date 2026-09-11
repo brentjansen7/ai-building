@@ -1,0 +1,72 @@
+GMAIL SENT EMAILS - COMPLETE LIST
+==================================
+
+Total SENT emails in Gmail: 201
+
+ANALYSIS OF EMAILS (extracted from subject lines):
+- Multiple emails sent to SAME companies (duplicates/retries)
+- Some companies contacted via different email addresses
+
+COMPANIES WITH MULTIPLE EMAILS SENT:
+=====================================
+
+1. Restaurant Perceel - 2 emails
+   - restaurantperceel@gmail.com
+   - info@restaurantperceel.nl
+
+2. Restaurant De Loet - 2 emails
+   - restaurantdeloet@gmail.com
+   - info@deloet.nl
+
+3. Eetcafé De Crimpenaar - 2 emails
+   - info@eetcafedecrimpenaar.nl (sent twice - noted as "Verstuurd (2x)")
+
+4. Installatiebedrijf Nobel - 2 emails
+   - info@installatiebedrijfnobel.nl
+   - jnobel@hetnet.nl
+
+5. Tchai Therapie & Coaching - 2 emails
+   - gwen@tchai-therapy.nl
+   - info@tchai-therapy.nl
+
+6. FysioVitaal Krimpen - 2 emails (noted as duplicate mistake in email)
+
+7. Allermooist - 2 emails
+   - info@allermooist.nl (appears twice)
+
+8. De Boom Bouw - 2 emails
+   - info@deboom-bouw.nl
+
+9. Hagendijk Bouw - 2 emails
+   - info@hagendijkbouw.nl
+
+10. Kuiper en Koning - 2 emails
+    - r.koning@fysiomanueletherapie.nl
+    - info@fysiomanueletherapie.nl
+
+11. Fysiotherapie Lek & Yssel - 2 emails
+    - remy@fysiotherapie-lek-yssel.nl
+    - secretaresse@fysiotherapie-lek-yssel.nl
+
+12. Spanino Pizza - Multiple interactions (emails + replies, drafts/prototypes)
+
+13. De Pee Logistiek - 2 emails
+    - planning@depeelogistiek.nl
+
+14. Fysiotherapie MSC - 2 emails
+    - contact@fysiotherapiemsc.nl
+    - info@fysiotherapiemsc.nl
+
+15. Bij Ageeth - 2 emails
+    - contact@bijageethkappers.nl
+
+NOTE: Many emails are CONVERSATIONS/REPLIES, not just initial outreach:
+- Fysiotherapie Lek & Yssel (Remy) - Multiple back-and-forth emails about meeting
+- Restaurant Perceel - Reply to Sharon confirming
+- Restaurant De Loet - Reply to Willem & Gaby
+- Spanino Pizza - Multiple iterations (fixes, drafts, prototypes)
+- Kuiper en Koning - Follow-up about tool feedback
+- DubbelFit Fysiotherapie - Reply about project status
+- Ergotherapie Krimpen - Apology for duplicate email
+
+TOTAL UNIQUE COMPANIES: ~130-140 (accounting for variants and duplicates)

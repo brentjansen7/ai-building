@@ -1,0 +1,66 @@
+=== TANDARTSEN EMAILS ===
+
+[TANDARTS-1]
+To: info@tandarts-krimpen.nl
+Subject: Korte vraag van een lokale scholier — Tandartspraktijk Krimpen
+
+Hey team van Tandartspraktijk Krimpen,
+
+Ik ben Brent, 16 jaar, lokale ondernemer uit Krimpen. Ik zag dat jullie een brede praktijk runnen met veel patiënten — en dat betekent veel afspraken, SOAP-verslagen en facturatie.
+
+Ik heb een AI-tool gemaakt die tandartsen helpt met administratie. Kuiper & Koning Fysiotherapie gebruikt het al om verslagen in seconden te schrijven.
+
+Kan ik jullie erover vertellen? Kijk hier: https://brentjansen7.github.io/ai-building/zorg
+
+Groetjes, Brent
+
+---
+
+[TANDARTS-2]
+To: contact@dentalcare-krimpen.nl
+Subject: Korte vraag van een lokale scholier — Dental Care Krimpen
+
+Hey team van Dental Care Krimpen,
+
+Ik ben Brent, 16 jaar, ondernemer uit Krimpen. Ik zag dat jullie specialiseren in implantologie en cosmetische tandheelkunde — ingewikkelder werk betekent uitgebreide administratie.
+
+Ik heb een AI-tool gemaakt waarmee tandartsen SOAP-verslagen en afsprakenbeheer automatiseren.
+
+Wil je het zien? https://brentjansen7.github.io/ai-building/zorg
+
+Groetjes, Brent
+
+---
+
+=== PIZZERIA EMAILS ===
+
+[PIZZA-1]
+To: info@pizza-palace-krimpen.nl
+Subject: Korte vraag van een lokale scholier — Pizza Palace Krimpen
+
+Hey team van Pizza Palace Krimpen,
+
+Ik ben Brent, 16 jaar, lokale ondernemer. Ik zag dat jullie veel bestellingen afhandelen — telefoontjes, WhatsApp, Instagram, bezorg-appjes.
+
+Ik heb een systeem gemaakt voor pizza's dat orders en facturatie automatiseert. Spanino Pizza gebruikt het al.
+
+Interessant? Kijk hier: https://brentjansen7.github.io/ai-building/horeca
+
+Groetjes, Brent
+
+---
+
+[PIZZA-2]
+To: contact@da-romano.nl
+Subject: Korte vraag van een lokale scholier — Pizzeria Da Romano
+
+Hey Pizzeria Da Romano,
+
+Ik ben Brent, 16 jaar, ondernemer uit Krimpen. Jullie hebben een toffe sfeer en veel klanten — dat vraagt om strakke orderverwering.
+
+Ik heb een AI-tool gemaakt die bestellingen en facturen automatisch verwerkt. Benieuwd?
+
+https://brentjansen7.github.io/ai-building/horeca
+
+Groetjes, Brent
+

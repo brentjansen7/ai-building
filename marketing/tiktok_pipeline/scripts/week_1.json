@@ -1,0 +1,463 @@
+[
+  {
+    "id": "w1_d1_s1",
+    "week": 1,
+    "day": "dinsdag 12-05",
+    "time": "08:00",
+    "format": "live_demo",
+    "hook": "Dit kost 19 euro per maand en bespaart je een uur per dag",
+    "body": "Ik plak 80 adressen, klik op optimaliseer, en de route staat in 15 seconden klaar. Geen Google Maps gepuzzel meer.",
+    "cta": "Zoek routeplanner punt nl op Google.",
+    "broll_keywords": [
+      "screen_recording_routeplanner"
+    ],
+    "music_mood": "upbeat",
+    "hashtags": [
+      "#pakketbezorger",
+      "#koerier",
+      "#ondernemen",
+      "#rotterdam"
+    ],
+    "ai_label": true
+  },
+  {
+    "id": "w1_d1_s2",
+    "week": 1,
+    "day": "dinsdag 12-05",
+    "time": "13:00",
+    "format": "live_demo",
+    "hook": "Hoe ik 100 pakketten in 30 seconden op route zet",
+    "body": "Ik plak 70 adressen, klik op optimaliseer, en de route staat in 12 seconden klaar. Geen Google Maps gepuzzel meer.",
+    "cta": "Link in bio. Gratis proberen.",
+    "broll_keywords": [
+      "screen_recording_routeplanner"
+    ],
+    "music_mood": "upbeat",
+    "hashtags": [
+      "#postnl",
+      "#zzp",
+      "#automatisering",
+      "#zuidholland"
+    ],
+    "ai_label": true
+  },
+  {
+    "id": "w1_d1_s3",
+    "week": 1,
+    "day": "dinsdag 12-05",
+    "time": "19:00",
+    "format": "pain_point",
+    "hook": "Een koerier verspilt 7 uur per week aan deze ene fout",
+    "body": "Bezorgers verspillen gemiddeld 8 uur per week aan slecht geplande routes. Dat is bijna een hele werkdag.",
+    "cta": "Pak je gratis account via de link.",
+    "broll_keywords": [
+      "delivery van",
+      "courier package",
+      "stressed driver"
+    ],
+    "music_mood": "ambient",
+    "hashtags": [
+      "#dhl",
+      "#pakketbezorger",
+      "#ondernemen",
+      "#krimpen"
+    ],
+    "ai_label": true
+  },
+  {
+    "id": "w1_d2_s1",
+    "week": 1,
+    "day": "woensdag 13-05",
+    "time": "08:00",
+    "format": "live_demo",
+    "hook": "Dit gebruik ik elke ochtend voor mijn postroute",
+    "body": "Kijk wat 100 pakketten doet als je ze in de juiste volgorde rijdt. Bespaart 30 minuten elke ochtend.",
+    "cta": "Pak je gratis account via de link.",
+    "broll_keywords": [
+      "screen_recording_routeplanner"
+    ],
+    "music_mood": "upbeat",
+    "hashtags": [
+      "#postnl",
+      "#pakketbezorger",
+      "#routeoptimalisatie",
+      "#krimpen"
+    ],
+    "ai_label": true
+  },
+  {
+    "id": "w1_d2_s2",
+    "week": 1,
+    "day": "woensdag 13-05",
+    "time": "13:00",
+    "format": "live_demo",
+    "hook": "Waarom rijden bezorgers nog steeds met print-lijsten in 2026",
+    "body": "Ik plak 80 adressen, klik op optimaliseer, en de route staat in 10 seconden klaar. Geen Google Maps gepuzzel meer.",
+    "cta": "Check de bio. 15 stops per dag gratis.",
+    "broll_keywords": [
+      "screen_recording_routeplanner"
+    ],
+    "music_mood": "upbeat",
+    "hashtags": [
+      "#pakketbezorger",
+      "#koerier",
+      "#routeoptimalisatie",
+      "#zuidholland"
+    ],
+    "ai_label": true
+  },
+  {
+    "id": "w1_d2_s3",
+    "week": 1,
+    "day": "woensdag 13-05",
+    "time": "19:00",
+    "format": "pain_point",
+    "hook": "Drie minuten werk wordt 10 seconden",
+    "body": "Bezorgers verspillen gemiddeld 8 uur per week aan slecht geplande routes. Dat is bijna een hele werkdag.",
+    "cta": "Comment 'route' dan stuur ik 'm in de DM.",
+    "broll_keywords": [
+      "delivery van",
+      "courier package",
+      "stressed driver"
+    ],
+    "music_mood": "ambient",
+    "hashtags": [
+      "#postnl",
+      "#dhl",
+      "#routeoptimalisatie",
+      "#krimpen"
+    ],
+    "ai_label": true
+  },
+  {
+    "id": "w1_d3_s1",
+    "week": 1,
+    "day": "donderdag 14-05",
+    "time": "08:00",
+    "format": "pain_point",
+    "hook": "Dit kost 19 euro per maand en bespaart je een uur per dag",
+    "body": "Klant nummer 3 wacht een half uur omdat de bezorger eerst nummer 14 doet. Dat is geen pech, dat is slechte route.",
+    "cta": "Comment 'route' dan stuur ik 'm in de DM.",
+    "broll_keywords": [
+      "delivery van",
+      "courier package",
+      "stressed driver"
+    ],
+    "music_mood": "ambient",
+    "hashtags": [
+      "#zzp",
+      "#koerier",
+      "#routeoptimalisatie",
+      "#krimpen"
+    ],
+    "ai_label": true
+  },
+  {
+    "id": "w1_d3_s2",
+    "week": 1,
+    "day": "donderdag 14-05",
+    "time": "13:00",
+    "format": "before_after",
+    "hook": "Dit doe je verkeerd als bezorger",
+    "body": "Dit is wat 80 procent van de bezorgers nog steeds doet. En dit is wat ik doe sinds vorige maand.",
+    "cta": "Check de bio. 15 stops per dag gratis.",
+    "broll_keywords": [
+      "screen_recording_routeplanner",
+      "google maps screen"
+    ],
+    "music_mood": "upbeat",
+    "hashtags": [
+      "#postnl",
+      "#pakketbezorger",
+      "#ai",
+      "#krimpen"
+    ],
+    "ai_label": true
+  },
+  {
+    "id": "w1_d3_s3",
+    "week": 1,
+    "day": "donderdag 14-05",
+    "time": "19:00",
+    "format": "pov_day",
+    "hook": "Wat ik leerde van 100 plus stops per week bezorgen",
+    "body": "Ochtend bij een koerier zonder routeplanner: print, sorteren, hopen dat je niks vergeet. Met routeplanner: open de app, klik, rijden.",
+    "cta": "Link in bio. Gratis proberen.",
+    "broll_keywords": [
+      "morning coffee delivery",
+      "courier loading van",
+      "package delivery"
+    ],
+    "music_mood": "ambient",
+    "hashtags": [
+      "#postnl",
+      "#zzp",
+      "#ai",
+      "#krimpen"
+    ],
+    "ai_label": true
+  },
+  {
+    "id": "w1_d4_s1",
+    "week": 1,
+    "day": "vrijdag 15-05",
+    "time": "08:00",
+    "format": "live_demo",
+    "hook": "PostNL en DHL bezorgers, kijk dit even",
+    "body": "Kijk wat 90 pakketten doet als je ze in de juiste volgorde rijdt. Bespaart 30 minuten elke ochtend.",
+    "cta": "Comment 'route' dan stuur ik 'm in de DM.",
+    "broll_keywords": [
+      "screen_recording_routeplanner"
+    ],
+    "music_mood": "upbeat",
+    "hashtags": [
+      "#pakketbezorger",
+      "#koerier",
+      "#ondernemen",
+      "#rotterdam"
+    ],
+    "ai_label": true
+  },
+  {
+    "id": "w1_d4_s2",
+    "week": 1,
+    "day": "vrijdag 15-05",
+    "time": "13:00",
+    "format": "pov_day",
+    "hook": "Waarom rijden bezorgers nog steeds met print-lijsten in 2026",
+    "body": "Ochtend bij een koerier zonder routeplanner: print, sorteren, hopen dat je niks vergeet. Met routeplanner: open de app, klik, rijden.",
+    "cta": "Pak je gratis account via de link.",
+    "broll_keywords": [
+      "morning coffee delivery",
+      "courier loading van",
+      "package delivery"
+    ],
+    "music_mood": "ambient",
+    "hashtags": [
+      "#dhl",
+      "#pakketbezorger",
+      "#routeoptimalisatie",
+      "#krimpen"
+    ],
+    "ai_label": true
+  },
+  {
+    "id": "w1_d4_s3",
+    "week": 1,
+    "day": "vrijdag 15-05",
+    "time": "19:00",
+    "format": "live_demo",
+    "hook": "Drie minuten werk wordt 10 seconden",
+    "body": "Kijk wat 100 pakketten doet als je ze in de juiste volgorde rijdt. Bespaart 30 minuten elke ochtend.",
+    "cta": "Pak je gratis account via de link.",
+    "broll_keywords": [
+      "screen_recording_routeplanner"
+    ],
+    "music_mood": "upbeat",
+    "hashtags": [
+      "#zzp",
+      "#pakketbezorger",
+      "#routeoptimalisatie",
+      "#rotterdam"
+    ],
+    "ai_label": true
+  },
+  {
+    "id": "w1_d5_s1",
+    "week": 1,
+    "day": "zaterdag 16-05",
+    "time": "08:00",
+    "format": "numbers_hook",
+    "hook": "Stop met je route handmatig plannen",
+    "body": "8 uur per week. Dat verspilt een gemiddelde koerier aan handmatig routes plannen.",
+    "cta": "Link in bio. Gratis proberen.",
+    "broll_keywords": [
+      "money counting",
+      "clock fast",
+      "delivery van"
+    ],
+    "music_mood": "upbeat",
+    "hashtags": [
+      "#pakketbezorger",
+      "#postnl",
+      "#bezorgservice",
+      "#krimpen"
+    ],
+    "ai_label": true
+  },
+  {
+    "id": "w1_d5_s2",
+    "week": 1,
+    "day": "zaterdag 16-05",
+    "time": "13:00",
+    "format": "numbers_hook",
+    "hook": "Gratis tool die elke koerier zou moeten kennen",
+    "body": "35 procent. Zoveel kilometer minder als je je route optimaal rijdt.",
+    "cta": "Check de bio. 15 stops per dag gratis.",
+    "broll_keywords": [
+      "money counting",
+      "clock fast",
+      "delivery van"
+    ],
+    "music_mood": "upbeat",
+    "hashtags": [
+      "#postnl",
+      "#zzp",
+      "#bezorgservice",
+      "#zuidholland"
+    ],
+    "ai_label": true
+  },
+  {
+    "id": "w1_d5_s3",
+    "week": 1,
+    "day": "zaterdag 16-05",
+    "time": "19:00",
+    "format": "live_demo",
+    "hook": "Een koerier verspilt 7 uur per week aan deze ene fout",
+    "body": "Dit is mijn echte postroute van vandaag. 70 stops, klaar in 15 seconden, route klopt in een keer.",
+    "cta": "Pak je gratis account via de link.",
+    "broll_keywords": [
+      "screen_recording_routeplanner"
+    ],
+    "music_mood": "upbeat",
+    "hashtags": [
+      "#postnl",
+      "#dhl",
+      "#automatisering",
+      "#zuidholland"
+    ],
+    "ai_label": true
+  },
+  {
+    "id": "w1_d6_s1",
+    "week": 1,
+    "day": "zondag 17-05",
+    "time": "08:00",
+    "format": "live_demo",
+    "hook": "Wat ik leerde van 100 plus stops per week bezorgen",
+    "body": "Dit is mijn echte postroute van vandaag. 60 stops, klaar in 12 seconden, route klopt in een keer.",
+    "cta": "Link in bio. Gratis proberen.",
+    "broll_keywords": [
+      "screen_recording_routeplanner"
+    ],
+    "music_mood": "upbeat",
+    "hashtags": [
+      "#zzp",
+      "#koerier",
+      "#ai",
+      "#krimpen"
+    ],
+    "ai_label": true
+  },
+  {
+    "id": "w1_d6_s2",
+    "week": 1,
+    "day": "zondag 17-05",
+    "time": "13:00",
+    "format": "before_after",
+    "hook": "Waarom rijden bezorgers nog steeds met print-lijsten in 2026",
+    "body": "Links: handmatig in Google Maps. Rechts: routeplanner. Zelfde adressen, 25 procent minder kilometers.",
+    "cta": "Link in bio. Gratis proberen.",
+    "broll_keywords": [
+      "screen_recording_routeplanner",
+      "google maps screen"
+    ],
+    "music_mood": "upbeat",
+    "hashtags": [
+      "#koerier",
+      "#zzp",
+      "#ai",
+      "#rotterdam"
+    ],
+    "ai_label": true
+  },
+  {
+    "id": "w1_d6_s3",
+    "week": 1,
+    "day": "zondag 17-05",
+    "time": "19:00",
+    "format": "live_demo",
+    "hook": "Dit doe je verkeerd als bezorger",
+    "body": "Ik plak 90 adressen, klik op optimaliseer, en de route staat in 12 seconden klaar. Geen Google Maps gepuzzel meer.",
+    "cta": "Zoek routeplanner punt nl op Google.",
+    "broll_keywords": [
+      "screen_recording_routeplanner"
+    ],
+    "music_mood": "upbeat",
+    "hashtags": [
+      "#zzp",
+      "#koerier",
+      "#automatisering",
+      "#krimpen"
+    ],
+    "ai_label": true
+  },
+  {
+    "id": "w1_d7_s1",
+    "week": 1,
+    "day": "maandag 18-05",
+    "time": "08:00",
+    "format": "pov_day",
+    "hook": "Een 16-jarige bouwde dit voor zijn eigen postroute",
+    "body": "Een dag uit het leven van een bezorger met de juiste tools. Spoiler: je rijdt eerder thuis.",
+    "cta": "Check de bio. 15 stops per dag gratis.",
+    "broll_keywords": [
+      "morning coffee delivery",
+      "courier loading van",
+      "package delivery"
+    ],
+    "music_mood": "ambient",
+    "hashtags": [
+      "#postnl",
+      "#pakketbezorger",
+      "#bezorgservice",
+      "#krimpen"
+    ],
+    "ai_label": true
+  },
+  {
+    "id": "w1_d7_s2",
+    "week": 1,
+    "day": "maandag 18-05",
+    "time": "13:00",
+    "format": "live_demo",
+    "hook": "Een koerier verspilt 7 uur per week aan deze ene fout",
+    "body": "Kijk wat 90 pakketten doet als je ze in de juiste volgorde rijdt. Bespaart 60 minuten elke ochtend.",
+    "cta": "Link in bio. Gratis proberen.",
+    "broll_keywords": [
+      "screen_recording_routeplanner"
+    ],
+    "music_mood": "upbeat",
+    "hashtags": [
+      "#dhl",
+      "#pakketbezorger",
+      "#routeoptimalisatie",
+      "#zuidholland"
+    ],
+    "ai_label": true
+  },
+  {
+    "id": "w1_d7_s3",
+    "week": 1,
+    "day": "maandag 18-05",
+    "time": "19:00",
+    "format": "numbers_hook",
+    "hook": "Hoe ik 100 pakketten in 30 seconden op route zet",
+    "body": "7 uur per week. Dat verspilt een gemiddelde koerier aan handmatig routes plannen.",
+    "cta": "Zoek routeplanner punt nl op Google.",
+    "broll_keywords": [
+      "money counting",
+      "clock fast",
+      "delivery van"
+    ],
+    "music_mood": "upbeat",
+    "hashtags": [
+      "#dhl",
+      "#koerier",
+      "#routeoptimalisatie",
+      "#krimpen"
+    ],
+    "ai_label": true
+  }
+]

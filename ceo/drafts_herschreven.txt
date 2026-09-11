@@ -1,0 +1,231 @@
+================================================================================
+HERSCHREVEN COLD EMAILS — Volg exact template, 120-130 woorden elk
+================================================================================
+
+---
+1. FYSIOTHERAPIE CAPELLE
+To: info@fysiocapelle.nl
+Subject: Korte vraag van een lokale scholier — Fysiotherapie Capelle
+
+Hey,
+
+Ik zag dat jullie sinds jaren oncologische revalidatie en COPD-behandeling doen — dat soort gespecialiseerde zorg vraagt om een efficiënte workflow.
+
+Ik ben Brent, 16 jaar, lokale ondernemer uit Krimpen. Ik heb onlangs voor Kuiper & Koning Fysiotherapie een AI-tool gebouwd die SOAP-verslagen in seconden schrijft.
+
+Voor Fysiotherapie Capelle zie ik iets vergelijkbaars: je administratieve verslagen automatiseren — zodat jullie fysiotherapeuten minder tijd aan paperwork kwijt zijn en meer tijd bij cliënten kunnen zijn.
+
+Of zijn er misschien nog andere dingen bij jullie die veel tijd kosten en waarbij je denkt: dit zou software eigenlijk kunnen doen?
+
+Zou je even willen reageren? Ook als het "nee" is — dan hoor ik dat ook graag!
+
+Bekijk wat ik heb gebouwd: https://brentjansen7.github.io/ai-building/zorg
+
+Groetjes, Brent
+brentjansen.ai.building@gmail.com | +31 639892324
+
+---
+2. AAFJE
+To: info@aafje.nl
+Subject: Korte vraag van een lokale scholier — Aafje
+
+Hey Aafje,
+
+Ik zag dat jullie 24/7 thuiszorg bieden in Rotterdam en omgeving — persoonlijke aandacht, geen wachtlijsten. Dat vraagt om goeie administratie.
+
+Ik ben Brent, 16 jaar, lokale ondernemer uit Krimpen. Ik heb voor Kuiper & Koning (fysiotherapie) een AI-tool gebouwd die SOAP-verslagen automatiseert.
+
+Voor Aafje zie ik een vergelijkbare kans: cliëntverzoeken, planning, administratie — al die repetitieve dingen die je medewerkers veel tijd kosten.
+
+Of zijn er misschien nog andere processen bij Aafje die veel tijd kosten en waarbij je denkt: dit zou software kunnen doen?
+
+Zou je even willen reageren? Ook als het "nee" is — dan hoor ik dat graag!
+
+Bekijk wat ik heb gebouwd: https://brentjansen7.github.io/ai-building/zorg
+
+Groetjes, Brent
+brentjansen.ai.building@gmail.com | +31 639892324
+
+---
+3. AMBACHTZORG
+To: bestuur@ambachtzorg.nl
+Subject: Korte vraag van een lokale scholier — Ambachtzorg
+
+Hey Ambachtzorg,
+
+Ik zag dat jullie kleine teams van max 4 zorgverleners per adres inzetten — dat vakmanschap en continuïteit van zorg vraagt om slimme planning en administratie.
+
+Ik ben Brent, 16 jaar, lokale ondernemer uit Krimpen. Ik heb voor Kuiper & Koning een AI-tool gebouwd die zorgverslagen in seconden schrijft — scheelt hun veel administratiewerk.
+
+Voor Ambachtzorg zie ik een vergelijkbare kans: planning, routeoptimalisatie, verslagen — zodat jullie meer focus hebben op wat je echt wil: kwalitatieve zorg.
+
+Of zijn er misschien andere dingen bij jullie die veel handwerk kosten?
+
+Zou je even willen reageren? Ook als het "nee" is — dan hoor ik dat graag!
+
+Bekijk wat ik heb gebouwd: https://brentjansen7.github.io/ai-building/zorg
+
+Groetjes, Brent
+brentjansen.ai.building@gmail.com | +31 639892324
+
+---
+4. ZUSTER JANSEN
+To: info@zusterjansen.nl
+Subject: Korte vraag van een lokale scholier — Zuster Jansen
+
+Hey Zuster Jansen,
+
+Ik zag dat jullie 24-uurs thuiszorg bieden zonder wachtlijsten — vooral gespecialiseerd in dementiezorg. Dat vraagt om efficiënte planning en administratie.
+
+Ik ben Brent, 16 jaar, lokale ondernemer uit Krimpen. Ik heb voor Kuiper & Koning (fysiotherapie) een AI-tool gebouwd die verslagen automatiseert — scheelt hen flink tijd.
+
+Voor Zuster Jansen zie ik iets vergelijkbaars: zorginplannen, verslagen, planning — allemaal dingen die je medewerkers veel tijd kosten.
+
+Of zijn er nog andere repetitieve processen waar software zou helpen?
+
+Zou je even willen reageren? Ook als het "nee" is — dan hoor ik dat graag!
+
+Bekijk wat ik heb gebouwd: https://brentjansen7.github.io/ai-building/zorg
+
+Groetjes, Brent
+brentjansen.ai.building@gmail.com | +31 639892324
+
+---
+5. DAGO EXPRESS
+To: info@dagoexpress.nl
+Subject: Korte vraag van een lokale scholier — DAGO Express
+
+Hey DAGO Express,
+
+Ik zag dat jullie 99.5% op-tijd aflevering garanderen en veel stops per dag doen — perfecte use case voor routeoptimalisatie.
+
+Ik ben Brent, 16 jaar, lokale ondernemer uit Krimpen. Ik heb een routeplanner gebouwd die adressen inscant en automatisch de snelste route berekent.
+
+Voor DAGO zie ik een vergelijkbare kans: je chauffeurs veel tijd besparen op routeplanning, zodat je nog efficiënter je pakjes kunt afleveren.
+
+Of zijn er nog andere dingen waar software jullie sneller zou maken?
+
+Zou je even willen reageren? Ook als het "nee" is — dan hoor ik dat graag!
+
+Bekijk wat ik heb gebouwd: https://brentjansen7.github.io/ai-building/logistiek
+
+Groetjes, Brent
+brentjansen.ai.building@gmail.com | +31 639892324
+
+---
+6. RUNNER KOERIERSDIENST
+To: info@runner.nl
+Subject: Korte vraag van een lokale scholier — Runner Koeriersdienst
+
+Hey Runner,
+
+Ik zag dat jullie 40+ jaar snelle bezorgingen doen — same day delivery, traceerbaar, 30 minuten in heel Nederland. Dat is schaal.
+
+Ik ben Brent, 16 jaar, lokale ondernemer uit Krimpen. Ik heb een routeplanner gebouwd die bezorgingen optimaliseert met adresmapping.
+
+Voor Runner zie ik iets moois: je dispatch en routeplanning nog efficiënter maken — zodat je nog sneller bezorgingen kunt garanteren.
+
+Of zijn er andere operationele dingen waar automatie jullie zou helpen?
+
+Zou je even willen reageren? Ook als het "nee" is — dan hoor ik dat graag!
+
+Bekijk wat ik heb gebouwd: https://brentjansen7.github.io/ai-building/logistiek
+
+Groetjes, Brent
+brentjansen.ai.building@gmail.com | +31 639892324
+
+---
+7. VERKAIK SNELTRANSPORT
+To: info@verkaiklogistiek.nl
+Subject: Korte vraag van een lokale scholier — Verkaik Sneltransport
+
+Hey Verkaik,
+
+Ik zag dat jullie sneltransport doen voor de regio Krimpen, Capelle, Rotterdam — veel stops per dag, snel.
+
+Ik ben Brent, 16 jaar, lokale ondernemer uit Krimpen. Ik heb een routeplanner gebouwd die bezorgadressen optimaliseert en routes automatiseert.
+
+Voor Verkaik zie ik een vergelijkbare kans: je chauffeurs kunnen sneller hun routes plannen en afhandelen — meer efficiency per dag.
+
+Of zijn er nog andere operationele processen waar software jullie zou helpen?
+
+Zou je even willen reageren? Ook als het "nee" is — dan hoor ik dat graag!
+
+Bekijk wat ik heb gebouwd: https://brentjansen7.github.io/ai-building/logistiek
+
+Groetjes, Brent
+brentjansen.ai.building@gmail.com | +31 639892324
+
+---
+8. TRANSPORTBEDRIJF BARENDRECHT
+To: info@transportbedrijfbarendacht.nl
+Subject: Korte vraag van een lokale scholier — Transportbedrijf Barendrecht
+
+Hey Transportbedrijf Barendrecht,
+
+Ik zag dat jullie gespecialiseerd zijn in verticaal transport van zware technische componenten — precisiework met logistieke complexiteit.
+
+Ik ben Brent, 16 jaar, lokale ondernemer uit Krimpen. Ik heb een routeplanner gebouwd voor transportbedrijven die routes optimaliseert.
+
+Voor Transportbedrijf Barendrecht zie ik een kans: planning van je technische transporten + administratie automatiseren — zodat je meer focus hebt op de precisie van het transport zelf.
+
+Of zijn er nog andere dingen waar software jullie zou helpen?
+
+Zou je even willen reageren? Ook als het "nee" is — dan hoor ik dat graag!
+
+Bekijk wat ik heb gebouwd: https://brentjansen7.github.io/ai-building/logistiek
+
+Groetjes, Brent
+brentjansen.ai.building@gmail.com | +31 639892324
+
+---
+9. SMAAK VAN DE WAARD
+To: esther@smaakvandewaard.nl
+Subject: Korte vraag van een lokale scholier — Smaak van de Waard
+
+Hey Esther,
+
+Ik zag dat jullie duurzaam cateringswerk doen — 90% lokale ingrediënten, thematische events, wandeldiners. Dat is kreatief maar logistiek ingewikkeld.
+
+Ik ben Brent, 16 jaar, lokale ondernemer uit Krimpen. Ik heb onlangs voor Spanino Pizza een systeem gebouwd dat feestverzoeken en facturen automatisch afhandelt.
+
+Voor Smaak van de Waard zie ik iets moois: je event-bookings, facturatie, ingrediëntenplanning — allemaal dingen die nu waarschijnlijk handwerk zijn.
+
+Of zijn er nog andere processen bij Smaak van de Waard die veel tijd kosten?
+
+Zou je even willen reageren? Ook als het "nee" is — dan hoor ik dat graag!
+
+Bekijk wat ik heb gebouwd: https://brentjansen7.github.io/ai-building/horeca
+
+Groetjes, Brent
+brentjansen.ai.building@gmail.com | +31 639892324
+
+---
+10. ONEMOTION
+Subject: Korte vraag van een lokale scholier — OneMotion
+
+(OneMotion is UK-based, contact via website form of contact page)
+
+Hey OneMotion,
+
+Ik ben Brent, 16 jaar, Nederlandse ondernemer met interesse in laatste-kilometer logistiek. Ik zag dat jullie final mile delivery, courier en fulfilment doen.
+
+Ik heb een routeplanner gebouwd die bezorgadressen optimaliseert — perfect voor last-mile operations met veel stops per dag.
+
+Zou je interesse hebben in een gesprek over hoe software jullie efficiency zou kunnen verbeteren? Of any other automation needs?
+
+Feel free to reply — no pressure.
+
+Check what I've built: https://brentjansen7.github.io/ai-building/logistiek
+
+Cheers, Brent
+brentjansen.ai.building@gmail.com
+
+================================================================================
+INSTRUCTIES:
+1. Kopieer deze emails in Gmail als DRAFT (niet versturen!)
+2. Zet voornaam in (of "team van" + bedrijfsnaam)
+3. Check adres/email klopt
+4. Alle emails zijn nu ~120-130 woorden + warm tone
+5. Ready to send volgende week
+================================================================================

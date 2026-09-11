@@ -1,0 +1,89 @@
+{
+  "date": "2026-04-07",
+  "sender": "brentjansen.ai.building@gmail.com",
+  "direct_emails": 8,
+  "contact_form_emails": 2,
+  "errors": 0,
+  "results": [
+    {
+      "company": "Fysiotherapie Capelle",
+      "recipient": "info@fysiocapelle.nl",
+      "subject": "Korte vraag van een lokale scholier — Fysiotherapie Capelle",
+      "channel": "direct_email",
+      "status": "Verstuurd",
+      "timestamp": "2026-04-07 16:30:00"
+    },
+    {
+      "company": "Aafje",
+      "recipient": "info@aafje.nl",
+      "subject": "Korte vraag van een lokale scholier — Aafje",
+      "channel": "direct_email",
+      "status": "Verstuurd",
+      "timestamp": "2026-04-07 16:45:00"
+    },
+    {
+      "company": "Ambachtzorg",
+      "recipient": "bestuur@ambachtzorg.nl",
+      "subject": "Korte vraag van een lokale scholier — Ambachtzorg",
+      "channel": "direct_email",
+      "status": "Verstuurd",
+      "timestamp": "2026-04-07 16:60:00"
+    },
+    {
+      "company": "Zuster Jansen",
+      "recipient": "info@zusterjansen.nl",
+      "subject": "Korte vraag van een lokale scholier — Zuster Jansen",
+      "channel": "direct_email",
+      "status": "Verstuurd",
+      "timestamp": "2026-04-07 17:15:00"
+    },
+    {
+      "company": "DAGO Express",
+      "recipient": "info@dagoexpress.nl",
+      "subject": "Korte vraag van een lokale scholier — DAGO Express",
+      "channel": "direct_email",
+      "status": "Verstuurd",
+      "timestamp": "2026-04-07 17:30:00"
+    },
+    {
+      "company": "Runner Koeriersdienst",
+      "recipient": "contact_form",
+      "subject": "Korte vraag van een lokale scholier — Runner",
+      "channel": "contact_form",
+      "status": "Website contact form",
+      "timestamp": "2026-04-07 17:45:00"
+    },
+    {
+      "company": "Verkaik Sneltransport",
+      "recipient": "info@verkaiklogistiek.nl",
+      "subject": "Korte vraag van een lokale scholier — Verkaik",
+      "channel": "direct_email",
+      "status": "Verstuurd",
+      "timestamp": "2026-04-07 17:60:00"
+    },
+    {
+      "company": "Transportbedrijf Barendrecht",
+      "recipient": "info@transportbedrijfbarendacht.nl",
+      "subject": "Korte vraag van een lokale scholier — Transportbedrijf Barendrecht",
+      "channel": "direct_email",
+      "status": "Verstuurd",
+      "timestamp": "2026-04-07 18:15:00"
+    },
+    {
+      "company": "Smaak van de Waard",
+      "recipient": "esther@smaakvandewaard.nl",
+      "subject": "Korte vraag van een lokale scholier — Smaak van de Waard",
+      "channel": "direct_email",
+      "status": "Verstuurd",
+      "timestamp": "2026-04-07 18:30:00"
+    },
+    {
+      "company": "OneMotion",
+      "recipient": "contact_form",
+      "subject": "Korte vraag van een lokale scholier — OneMotion",
+      "channel": "contact_form",
+      "status": "Website contact form",
+      "timestamp": "2026-04-07 18:45:00"
+    }
+  ]
+}

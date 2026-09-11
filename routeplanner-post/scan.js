@@ -78,9 +78,15 @@ Geef GEEN afzendadres, GEEN namen, GEEN extra uitleg. Alleen het adres.`;
     let bezig              = false;
 
     // ============================================================
-    // Bestand naar base64
+    // Bestand naar base64 — met fotovoorbewerking
+    // Roteert (EXIF), verkleint naar max 1600px en codeert als JPEG.
+    // Dit maakt scannen betrouwbaar: lost iPhone-HEIC, gedraaide foto's en
+    // te grote bestanden op (Claude weigert >5MB en leest gedraaide foto's slecht).
     // ============================================================
-    function leesBase64(file) {
+    const MAX_DIM        = 1600;
+    const JPEG_KWALITEIT = 0.85;
+
+    function leesBase64Ruw(file) {
         return new Promise((resolve) => {
             const reader = new FileReader();
             reader.onload = e => resolve({
@@ -89,6 +95,38 @@ Geef GEEN afzendadres, GEEN namen, GEEN extra uitleg. Alleen het adres.`;
             });
             reader.readAsDataURL(file);
         });
+    }
+
+    async function leesBase64(file) {
+        let bitmap;
+        try {
+            bitmap = await createImageBitmap(file, { imageOrientation: 'from-image' });
+        } catch {
+            return leesBase64Ruw(file);  // decoding faalde — stuur ruw bestand
+        }
+
+        let { width, height } = bitmap;
+        const schaal = Math.min(1, MAX_DIM / Math.max(width, height));
+        width  = Math.max(1, Math.round(width  * schaal));
+        height = Math.max(1, Math.round(height * schaal));
+
+        const canvas = document.createElement('canvas');
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(bitmap, 0, 0, width, height);
+        if (bitmap.close) bitmap.close();
+
+        const blob = await new Promise(res =>
+            canvas.toBlob(res, 'image/jpeg', JPEG_KWALITEIT));
+        if (!blob) return leesBase64Ruw(file);
+
+        const data = await new Promise(res => {
+            const r = new FileReader();
+            r.onload = e => res(e.target.result.split(',')[1]);
+            r.readAsDataURL(blob);
+        });
+        return { data, mime: 'image/jpeg' };
     }
 
     // ============================================================
@@ -233,7 +271,13 @@ Geef GEEN afzendadres, GEEN namen, GEEN extra uitleg. Alleen het adres.`;
                 if (tekst) {
                     tekst.split('\n')
                         .map(r => r.trim())
+                        // Lijstmarkering weg: "1. ", "1) ", "- ", "• "
+                        .map(r => r.replace(/^\s*(?:[-*•·]|\d{1,2}[.)])\s+/, ''))
+                        // Labelprefix weg: "Bezorgadres:", "Adres:", "Aan:", "Deliver to:"
+                        .map(r => r.replace(/^(?:bezorgadres|adres|aan|deliver to|bezorg)\s*[:.]?\s+/i, ''))
+                        // Postcode-spatie herstellen: "2925XE" → "2925 XE"
                         .map(r => r.replace(/\b(\d{4})([A-Za-z]{2})\b/g, '$1 $2'))
+                        .map(r => r.trim())
                         .filter(r => r.length > 5 && /\d/.test(r) && !/^onleesbaar$/i.test(r))
                         .forEach(r => {
                             if (!gevondenAdressen.find(a => a.tekst === r)) {

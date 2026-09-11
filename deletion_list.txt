@@ -1,0 +1,29 @@
+PAGES TO DELETE (OLDER DUPLICATES):
+
+De Pee Logistiek (keep 28 mrt):
+- 32cee788-bbec-81d0-a917-e8ae9cfa33cf (23 mrt - Follow-up verstuurd)
+- 330ee788-bbec-81a6-9741-f62c871eb158 (27 mrt - Concept gemaakt)
+
+Wex Holland (keep 28 mrt):
+- 330ee788-bbec-8168-b668-cd61ef4ee49a (27 mrt - Concept gemaakt)
+
+Berger Koerierservice (keep 28 mrt):
+- 330ee788-bbec-811d-a47c-d86671086860 (27 mrt - Concept gemaakt)
+
+A. Hak Transport (keep 28 mrt):
+- 330ee788-bbec-81fa-9ba7-f8c37843c905 (27 mrt - Concept gemaakt)
+
+Blonk Logistiek Transport (keep 28 mrt):
+- 32cee788-bbec-81f1-8ce7-c0ec4d07cda6 (23 mrt - Verstuurd with Datum: 2026-03-23)
+  NOTE: This one has Datum verstuurd filled, check if 28 mrt version is better
+
+Restaurant Perceel - KEEP BOTH (different emails):
+- KEEP: 32aee788-bbec-819d-8a7c-f9a046b7381c (21 mrt - info@restaurantperceel.nl)
+- KEEP: 331ee788-bbec-81af-b42e-d7c0f021163b (28 mrt - restaurantperceel@gmail.com)
+
+Restaurant De Loet - KEEP BOTH (different emails):
+- KEEP: 32aee788-bbec-8140-a147-d6fd73b6b5ae (21 mrt - info@deloet.nl)
+- KEEP: 331ee788-bbec-8105-970ac3e01e0797de (28 mrt - restaurantdeloet@gmail.com)
+
+TAB Transport - only 1 entry:
+- KEEP: 331ee788-bbec-8185-996b-e101924f42ac (28 mrt)

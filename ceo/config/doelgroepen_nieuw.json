@@ -1,0 +1,20 @@
+{
+  "tandartsen": {
+    "referentie_klant": "Kuiper & Koning Fysiotherapie",
+    "referentie_product": "AI-tool die SOAP-verslagen en afspraken automatiseert",
+    "referentie_resultaat": "tandartsen minder tijd kwijt zijn aan administratie",
+    "branche_url": "https://brentjansen7.github.io/ai-building/zorg",
+    "zoekterm": "tandarts OR tandartspraktijk OR tandenarts OR tandkliniek",
+    "uitsluit": "tandartsschool implantologie",
+    "email_opening_hint": "Noem hun specialisatie: implantologie, orthodontie, mondhygiëne, aantal patiënten"
+  },
+  "pizzeria": {
+    "referentie_klant": "Spanino Pizza",
+    "referentie_product": "systeem dat bestellingen en facturatie automatiseert",
+    "referentie_resultaat": "pizzeria-eigenaar minder tijd kwijt is aan administratie en meer tijd heeft voor productie",
+    "branche_url": "https://brentjansen7.github.io/ai-building/horeca",
+    "zoekterm": "pizzeria OR pizzadienst OR pizza delivery OR pizza bestellen",
+    "uitsluit": "pizzaoven winkel",
+    "email_opening_hint": "Noem hun specialiteit: dough-making, topping variety, delivery volume, of een review die je hebt gezien"
+  }
+}

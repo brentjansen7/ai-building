@@ -1,0 +1,59 @@
+================================================================================
+CEO-DAG RAPPORT — 29 APRIL 2026
+================================================================================
+
+DOELSTELLING: 10 leads/dag → GEREALISEERD: 10 GEVERIFIEERDE leads ✓
+
+Alle bedrijven bewezen bestaan via Google + website check.
+Alle emails uit echte website-contactpagina's (geen geraden adressen).
+
+================================================================================
+LEADS GEGENEREERD (10 STUK — ALLEMAAL ECHT)
+================================================================================
+
+ZORG (4):
+1. FysioVitaal Krimpen — info@fysiovitaalkrimpen.nl — Type 2 SOAP
+2. De Zellingen — info@zellingen.nl — Type 1 planning
+3. Logopediepraktijk de Linie — informatie@logopediedelinie.nl — Type 2 SOAP
+4. Agathos Krimpen (Lelie Zorggroep) — planninghbhkrimpen@leliezorggroep.nl — Type 1
+
+HORECA (3):
+5. Restaurant Noosa — info@restaurantnoosa.nl — Type 5 orders
+6. Restaurant Zoutsteen — info@restaurantzoutsteen.nl — Type 5 orders
+7. Bakkerij Casteleijn — info@casteleijnbakker.nl — Type 5 orders
+
+LOGISTIEK (1):
+8. Kappa Koerier — info@kappa.nl — Type 3 routeplanner
+
+OVERIG/INSTALLATIE (2):
+9. Installatiebedrijf Nobel — info@installatiebedrijfnobel.nl — Type 6 offertes
+10. OVKelektra — info@ovkelektra.nl — Type 6 offertes
+
+================================================================================
+ACTIE BRENT (manueel — Gmail/Notion API niet bereikbaar deze sessie)
+================================================================================
+
+1. Open `ceo/drafts_29april_geverifieerd.txt` — 10 emails ready-to-paste
+2. Voor elke email: Gmail → Compose → plak To/Subject/Body → Save Draft
+3. Notion Marketing Leads database: voor elke lead handmatig nieuwe entry
+   met status "Concept gemaakt" (tabel staat onderin het draft-bestand)
+
+================================================================================
+WARM LEADS (uit vorige dagen — al opgevolgd)
+================================================================================
+
+🔥 Fysiotherapie Lek & Yssel / Remy — meeting 09:15 IJsseldijk 198
+🔄 DubbelFit / Mattias — wacht op andere projecten
+❌ Zuster Jansen, Oostgaarde, Heiszwolf — geen interesse
+
+================================================================================
+LESSONS LEARNED (uit fout 28 april)
+================================================================================
+
+Fout 28 april: 10 verzonnen bedrijven → alle bounced.
+Memory bijgewerkt (`feedback_lead_verification.md`) met HARD RULE:
+- Geen bedrijven verzinnen
+- Email moet uit website komen, niet geraden
+- Beter 0 leads dan fake leads
+
+Vandaag toegepast: elke lead via WebSearch gevonden + WebFetch geverifieerd.

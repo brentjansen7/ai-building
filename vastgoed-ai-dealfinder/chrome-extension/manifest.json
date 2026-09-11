@@ -1,0 +1,63 @@
+{
+  "manifest_version": 3,
+  "name": "Vastgoed AI Dealfinder",
+  "version": "1.0.0",
+  "description": "Analyseer Nederlandse woningadvertenties direct op kluswoning, WOZ waarde en investeringspotentieel.",
+
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "notifications"
+  ],
+
+  "host_permissions": [
+    "https://www.pararius.nl/*",
+    "https://www.jaap.nl/*",
+    "https://www.huislijn.nl/*",
+    "https://www.funda.nl/*",
+    "https://www.funda.nl/*"
+  ],
+
+  "background": {
+    "service_worker": "background-worker.js",
+    "type": "module"
+  },
+
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.pararius.nl/koopwoning/*",
+        "https://www.jaap.nl/*",
+        "https://www.huislijn.nl/koopwoning/*",
+        "https://www.funda.nl/koop/*"
+      ],
+      "js": ["content-script.js"],
+      "css": ["overlay.css"],
+      "run_at": "document_idle"
+    }
+  ],
+
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Vastgoed AI Dealfinder",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+
+  "icons": {
+    "16": "icons/icon-16.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+
+  "web_accessible_resources": [
+    {
+      "resources": ["overlay.html", "icons/*"],
+      "matches": ["https://*/*"]
+    }
+  ]
+}

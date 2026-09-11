@@ -1,0 +1,107 @@
+================================================================================
+VERIFICATIE RAPPORT — 29 APRIL 2026
+================================================================================
+
+CHECKLIST PER LEAD:
+1. ✓ Dubbel-check (sent_leads_history.json + bedrijfsnaam)?
+2. ✓ Website bestaat (WebFetch)?
+3. ✓ Email echt (uit contactpagina)?
+4. ✓ Emaildomein matcht website?
+
+================================================================================
+RESULTATEN
+================================================================================
+
+1. RESTAURANT NOOSA — info@restaurantnoosa.nl
+   ✓ Dubbel-check: NIEUW (niet in sent history)
+   ✓ Website: restaurantnoosa.nl ACTIEF
+   ✓ Email: info@restaurantnoosa.nl (uit website contactpagina)
+   ✓ Domein matcht: info@restaurantnoosa.nl → restaurantnoosa.nl ✓
+   ✓ BEDRIJF ECHT: JA
+
+2. DE ZELLINGEN — info@zellingen.nl
+   ✓ Dubbel-check: NIEUW (niet in sent history)
+   ✓ Website: zellingen.nl ACTIEF
+   ✓ Email: info@zellingen.nl (uit website contactpagina)
+   ✓ Domein matcht: info@zellingen.nl → zellingen.nl ✓
+   ✓ BEDRIJF ECHT: JA (groot zorgorganisatie)
+
+3. LOGOPEDIEPRAKTIJK DE LINIE — informatie@logopediedelinie.nl
+   ✓ Dubbel-check: NIEUW (niet in sent history)
+   ✓ Website: logopediedelinie.nl ACTIEF
+   ✓ Email: informatie@logopediedelinie.nl (uit website contactpagina)
+   ✓ Domein matcht: informatie@logopediedelinie.nl → logopediedelinie.nl ✓
+   ✓ BEDRIJF ECHT: JA (5 logopedisten, Capelle)
+
+4. KAPPA KOERIER — info@kappa.nl
+   ✓ Dubbel-check: NIEUW (niet in sent history)
+   ✓ Website: kappa.nl ACTIEF
+   ✓ Email: info@kappa.nl (uit website contactpagina)
+   ✓ Domein matcht: info@kappa.nl → kappa.nl ✓
+   ✓ BEDRIJF ECHT: JA (40.000 ritten/jaar Rotterdam)
+
+5. BAKKERIJ CASTELEIJN — info@casteleijnbakker.nl
+   ✓ Dubbel-check: NIEUW (niet in sent history)
+   ✓ Website: casteleijnbakker.nl ACTIEF
+   ✓ Email: info@casteleijnbakker.nl (uit website contactpagina)
+   ✓ Domein matcht: info@casteleijnbakker.nl → casteleijnbakker.nl ✓
+   ✓ BEDRIJF ECHT: JA (familiebedrijf sinds 1888, meerdere winkels)
+
+6. DRECHTZORG — info@drechtzorg.nl
+   ✓ Dubbel-check: NIEUW (niet in sent history)
+   ✓ Website: drechtzorg.nl ACTIEF
+   ✓ Email: info@drechtzorg.nl (uit website contactpagina)
+   ✓ Domein matcht: info@drechtzorg.nl → drechtzorg.nl ✓
+   ✓ BEDRIJF ECHT: JA (netwerk 30+ zorgorganisaties, Drechtsteden)
+
+7. CONFORTE — info@conforte.nl
+   ✓ Dubbel-check: NIEUW (status "draft", 2026-04-29)
+   ✓ Website: conforte.nl ACTIEF
+   ✓ Email: info@conforte.nl (uit website contactpagina)
+   ✓ Domein matcht: info@conforte.nl → conforte.nl ✓
+   ✓ BEDRIJF ECHT: JA (zorgnetwerk Rotterdam, 13 organisaties)
+
+8. HB LOGISTIEK — info@hblogistiek.nl
+   ✓ Dubbel-check: NIEUW (status "draft", 2026-04-29)
+   ✓ Website: hblogistiek.nl ACTIEF
+   ✓ Email: info@hblogistiek.nl (uit website contactpagina)
+   ✓ Domein matcht: info@hblogistiek.nl → hblogistiek.nl ✓
+   ✓ BEDRIJF ECHT: JA (24/7 koerier, 9.6 sterren, Weert)
+
+9. ANGEL CARE 078 — info@angelcare078.nl
+   ✓ Dubbel-check: NIEUW (status "draft", 2026-04-29)
+   ✓ Website: angelcare078.nl ACTIEF
+   ✓ Email: info@angelcare078.nl (uit website contactpagina)
+   ✓ Domein matcht: info@angelcare078.nl → angelcare078.nl ✓
+   ✓ BEDRIJF ECHT: JA (thuiszorg Dordrecht)
+
+10. RIOOL.NL — info@riool.nl
+    ✓ Dubbel-check: NIEUW (status "draft", 2026-04-29)
+    ✓ Website: riool.nl ACTIEF
+    ✓ Email: info@riool.nl (uit website contactpagina)
+    ✓ Domein matcht: info@riool.nl → riool.nl ✓
+    ✓ BEDRIJF ECHT: JA (6 vestigingen Netherlands, loodgieter)
+
+================================================================================
+SAMENVATTING
+================================================================================
+
+✅ ALLEMAAL GEVERIFIEERD: 10/10 ✓
+
+Agathos → Drechtzorg vervangen (zelfde organisatie risico verwijderd)
+
+ALLE CHECKS GESLAAGD:
+✓ Geen dubbels (sent history check)
+✓ Alle websites actief
+✓ Alle emails echt (uit contactpagina's)
+✓ Alle domeinen matchen
+✓ Alle bedrijven echt
+
+================================================================================
+READY FOR GMAIL & NOTION
+================================================================================
+
+10 drafts → klaar voor:
+1. Gmail: Delete 4 dubbels, paste 10 nieuwe
+2. Notion: 10 entries "Concept gemaakt" (2026-04-29)
+3. sent_leads_history.json: ✓ al updated

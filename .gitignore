@@ -1,0 +1,29 @@
+# Secrets — NOOIT committen
+*.env
+.env
+.env.*
+!.env.example
+cookies.txt
+push-env*.ps1
+push-env*.sh
+format-env.js
+.mcp.json
+
+# Dependencies
+node_modules/
+
+# Tooling / state
+.claude-flow/
+.swarm/
+.claude/
+.hive-mind/
+*.log
+
+# Losse projecten met eigen GitHub-repo
+kuiper koning AI/
+roosterplanner/
+spanino-pizza/
+stebo-reclame/
+ceo/config/notion.json
+credentials.json
+token.json

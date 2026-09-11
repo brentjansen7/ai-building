@@ -1,0 +1,122 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: arbitrage_postgres
+    environment:
+      POSTGRES_DB: arbitrage
+      POSTGRES_USER: arbitrage_user
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-changeme}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./db/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql
+    networks:
+      - arbitrage_net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U arbitrage_user -d arbitrage"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis/redis-stack:latest
+    container_name: arbitrage_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - arbitrage_net
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: arbitrage_api
+    command: uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql://arbitrage_user:${DB_PASSWORD:-changeme}@postgres:5432/arbitrage
+      REDIS_URL: redis://redis:6379/0
+      TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN}
+      TELEGRAM_CHAT_ID: ${TELEGRAM_CHAT_ID}
+      API_KEY: ${API_KEY:-dev-key-change-in-production}
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes:
+      - .:/app
+    networks:
+      - arbitrage_net
+
+  scraper_worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: arbitrage_scraper
+    command: arq scraper.tasks.WorkerSettings
+    environment:
+      DATABASE_URL: postgresql+asyncpg://arbitrage_user:${DB_PASSWORD:-changeme}@postgres:5432/arbitrage
+      REDIS_URL: redis://redis:6379/0
+      PROXY_LIST: ${PROXY_LIST:-}
+      TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN:-}
+      TELEGRAM_CHAT_ID: ${TELEGRAM_CHAT_ID:-}
+      DISCORD_WEBHOOK_URL: ${DISCORD_WEBHOOK_URL:-}
+      MIN_PROFIT_EUR: ${MIN_PROFIT_EUR:-30}
+      MIN_PROFIT_PCT: ${MIN_PROFIT_PCT:-0.25}
+      MIN_CONFIDENCE: ${MIN_CONFIDENCE:-0.65}
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes:
+      - .:/app
+    networks:
+      - arbitrage_net
+
+  embedding_worker:
+    build:
+      context: .
+      dockerfile: Dockerfile.gpu
+    container_name: arbitrage_embedding
+    command: arq scraper.tasks.WorkerSettings
+    environment:
+      DATABASE_URL: postgresql+asyncpg://arbitrage_user:${DB_PASSWORD:-changeme}@postgres:5432/arbitrage
+      REDIS_URL: redis://redis:6379/0
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes:
+      - .:/app
+    networks:
+      - arbitrage_net
+    # Uncomment if GPU available:
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: 1
+    #           capabilities: [gpu]
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  arbitrage_net:
+    driver: bridge

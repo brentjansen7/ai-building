@@ -1,0 +1,24 @@
+EMAIL QUEUE — 7 april 2026
+==========================
+
+Status: READY TO SEND
+Total: 10 emails
+Dubbelen overgeslagen: 3
+
+VERZENDLIJST:
+1. Fysiotherapie Capelle | info@fysiocapelle.nl
+2. Aafje | info@aafje.nl
+3. Ambachtzorg | bestuur@ambachtzorg.nl
+4. Zuster Jansen | info@zusterjansen.nl
+5. DAGO Express | [email protected]
+6. Runner Koeriersdienst | (website contact form)
+7. Verkaik Sneltransport | info@verkaiklogistiek.nl
+8. Transportbedrijf Barendrecht | info@transportbedrijfbarendacht.nl
+9. Smaak van de Waard | esther@smaakvandewaard.nl
+10. OneMotion | (website contact form)
+
+EMAIL BODIES: Zie cold_emails_13_leads.txt
+
+NOTION: 10 leads toegevoegd op 2026-04-07
+
+NEXT: Verzend emails via Gmail of Zapier automation

@@ -1,0 +1,162 @@
+EMAIL VERIFICATION REPORT - SENT EMAILS VS NOTION DATABASE
+================================================================
+
+TOTAL EMAILS COLLECTED: 201 SENT emails
+
+COMPANIES CONTACTED (extracted from email subjects):
+---------------------------------------------------
+
+1. Wex Holland - info@wexholland.com
+2. Berger Koerierservice - info@bergerkoerierservice.nl
+3. A. Hak Transport - info@haktransport.nl
+4. BK IT Solutions - bas@bkitsolutions.nl
+5. ClickActive - info@clickactive.nl
+6. U-lab - info@u-lab.nl
+7. Fysiotherapie Lek&Yssel - remy@fysiotherapie-lek-yssel.nl
+8. SAM Design - info@samdesign.nl
+9. FS Fysio - info@fsfysio.nl
+10. Vermeer Verhuizingen - info@vermeerverhuizingen.nl
+11. TAB Transport - info@tabtransport.nl
+12. Rijnmond Verhuisbedrijf - info@rijnmondverhuisbedrijf.nl
+13. VenderFix - info@venderfix.nl
+14. JH Distributie - info@jhdistributie.nl
+15. Rotterdam Koeriers - planning@rotterdamkoeriers.nl
+16. MVB Koerier - info@mvbkoerier.nl
+17. Fysiotherapie Waalboer - info@fysio-ridderkerk.nl
+18. Restaurant Perceel - restaurantperceel@gmail.com
+19. Restaurant De Loet - restaurantdeloet@gmail.com (2 variants)
+20. Grand Café Roos - info@grandcaferoos.nl
+21. Café en Suite - cafeensuite@speksnijder.nl
+22. Masha Restaurant - info@masha.nl
+23. Snackbar Michelle - snackbarmichelle@gmail.com
+24. Restaurant Perceel - info@restaurantperceel.nl
+25. Eetcafé 't Centrum - info@eetcafebergambacht.nl
+26. De Kleyburg - info@kleyburg.nl
+27. Voel je Goed Coaching - info@voeljegoedcoaching.nl
+28. Diëtistenpraktijk De Kuiper & Den Besten - info@dietistenpraktijkkuiperbesten.nl
+29. Balance Diet - info@dietistenpraktijk-balancediet.nl
+30. Fysiotherapie Zilverstad - info@fysiotherapiezilverstad.nl
+31. Fysiotherapie Nieuw-Lekkerland - info@fysio-nl.nl
+32. Logopedie Nederlek - logopedienederlek@hotmail.com
+33. Matthias Massage - mail@matthiasmassage.nl
+34. Spier-It Massage - info@spieritmassage.nl
+35. Therapeutisch Centrum Klerk - info@tcklerk.nl
+36. Gele Keizer - info@gelekeizer.nl
+37. FoodChoice - info@foodchoice.nl
+38. Schoonheidssalon Astria - info@schoonheidssalonastria.nl
+39. Osteovisie - niels@osteovisie.nl
+40. Bartels Coaches - info@bartelscoaches.nl
+41. De Bruijn Groep - info@debruijn-groep.nl
+42. Loodgietersbedrijf Rieske - info@loodgietersbedrijf-rieske.nl
+43. Kooijmans Loodgieters - info@kooijmansloodgieters.nl
+44. Den Besten Bouw - info@denbestenbouw.nl
+45. Tandartsenpraktijk IJsselland - Info@tpijsselland.nl
+46. DubbelFit Fysiotherapie - info@dubbelfitfysiotherapie.nl
+47. Één Aanspreek - info@eenaanspreek.nl
+48. Snoek Hoveniers - info@snoekhoveniers.nl
+49. Steev Hoveniers - info@steev-hoveniers.nl
+50. A.S.H. Hoveniers - arno@ash-hoveniers.nl
+51. Autoservice Lekkerland - info@autoservicelekkerland.nl
+52. W.A. de Jong Autoschade - info@wadejongautoschade.nl
+53. RM Fysio & Performance - info@rmfysio.nl
+54. FysioCapelle - info@fysiocapelle.nl
+55. Fysiotherapie Heiszwolf - peterheiszwolf@hotmail.com
+56. Fysio Connected Capelle - info@fysio-capelle.nl
+57. Lelie Zorggroep Krimpen - planningvenvkrimpencentrum@leliezorggroep.nl
+58. De Pee Logistiek - planning@depeelogistiek.nl
+59. Van Leeuwen Logistics - info@vanleeuwenlogistics.nl
+60. Vuik Logistics - info@vuik-logistics.nl
+61. Blonk Logistiek Transport - msprincess@live.nl
+62. C. Heuvelman & Zn. - info@heuvelman-zand.nl
+63. HOF21 - info@hof21.nl
+64. Restaurant Aan de Dijck - info@aandedijck.nl
+65. Eetcafé Santas - santas1@planet.nl
+66. Huisartsenpraktijk Krimpen - huisartsennoord@gckrimpen.nl
+67. Groene Hart Maaltijdservice - info@groenehartmaaltijden.nl
+68. Vers aan Tafel - klantenservice@versaantafel.nl
+69. Administratiekantoor Verwaal - info@verwaaladministratie.nl
+70. Spanino Pizza - hanspanjersberg@gmail.com
+71. Kuiper en Koning - r.koning@fysiomanueletherapie.nl
+72. Installatiebedrijf Nobel - info@installatiebedrijfnobel.nl
+73. Tchai Therapie & Coaching - gwen@tchai-therapy.nl
+74. Ergotherapie Krimpen - info@ergotherapiekrimpen.nl
+75. FysioVitaal Krimpen - info@fysiovitaalkrimpen.nl
+76. Hagendijk Bouw - info@hagendijkbouw.nl
+77. Renovo - renovo@kpnplanet.nl
+78. Installatiebedrijf Nobel (duplicate) - jnobel@hetnet.nl
+79. De Boom Bouw - info@deboom-bouw.nl
+80. Eetcafé De Crimpenaar - info@eetcafedecrimpenaar.nl
+81. Langeland Tandartspraktijk - langelandtp@hotmail.nl
+82. Logopediepraktijk Krimpenerwaard - info@logopedie-krimpenerwaard.nl
+83. Logopedie Krimpen - info@logopedielekenijssel.nl
+84. Tchai Therapie & Coaching (duplicate) - info@tchai-therapy.nl
+85. VINK Psychologisch Centrum - info@vinkpc.nl
+86. Mentaal Beter Krimpen - infokj@mentaalbeter.nl
+87. Kinderdam - info@kinderdam.nl
+88. BSO Mozaïek - mozaiek@tobekind.nl
+89. Royal Kids Home - info@royalkidshome-krimpen.nl
+90. Kleine Huisdieren Kliniek - info@kleinehuisdierenkliniek.nl
+91. Dierenkliniek De Korf - info@dierenkliniekdekorf.nl
+92. Diener & Simons Financieel - administratie@dienersimons.nl
+93. Healthcenter Krimpenerwaard - info@healthcenterkrimpenerwaard.nl
+94. My HealthClub Krimpen - klantenservice@myhealthclub.nl
+95. De Salon Krimpen - info@desalonkrimpen.nl
+96. OVKelektra - info@ovkelektra.nl
+97. Nagelstudio Bij Caroline - info@nagelstudiobijcaroline.nl
+98. Middelland Installatie Techniek - info@mit.nu
+99. Mudde Bouw - info@muddebouw.nl
+100. Anouk van den Berg Huidtherapie - info@berghuidtherapie.nl
+101. Allermooist - info@allermooist.nl
+102. My Touch - suzanne@my-touch.nl
+103. Bij Ageeth - contact@bijageethkappers.nl
+104. Klussenier Roy van Leerdam - r.vanleerdam@klussenier.nl
+105. Bouwbedrijf De Winter - info@bouwbedrijfdewinter.nl
+106. Schilten Schoonmaak - info@schilten.nl
+107. Pedicurepraktijk Sansom - info@pedicurepraktijksansom.nl
+108. Koos Rook Financiële Diensten - info@koosrook.nl
+109. Allermooist Beautysalon - info@allermooist.nl (duplicate)
+110. Fysiotherapie MSC - contact@fysiotherapiemsc.nl
+111. Koudstaal & Blanken - info@koudstaalblanken.nl
+112. A&A Thuiszorg - rines@aathuiszorg.nl
+113. Zuster Jansen - info@zusterjansen.nl
+114. Partyservice Allebij - info@allebij.nl
+115. Het Koetshuis - info@hetkoetshuispartyservice.nl
+116. La Retraite - info@bistro-lr.nl
+117. Praktijk Bekken Fysiotherapie - info@pbfk.nl
+118. Efficiënta Offsetdrukkerij - info@efficienta.nl
+119. Drukproef - info@drukproef.nl
+120. Stebo Reclame - info@steboreclame.nl
+121. Scoob Marketing - info@scoob.online
+122. DES Schoonmaakdiensten - info@des-schoonmaak.nl
+123. Wijker Multiservice - info@wijker-multiservice.nl
+124. Jac den Hollander Verhuizingen - info@jacdenhollander.nl
+125. Restaurant Gino - info@restaurantgino.nl
+126. Van Nes Optiek - info@vannesoptiek.nl
+127. Autorijschool Adventure - info@autorijschooladventure.nl
+128. Dataflex - info@dataflex.nl
+129. Widek B.V. - info@widek.nl
+130. Huisartsenpraktijk Midden - info@huisartskrimpen.nl
+131. AdWolves Online Marketing - info@adwolves.nl
+132. AAccountants - info@aaccountants.nl
+133. SUM Accountants - info@sumaccountants.nl
+134. Vakgarage Blok - info@vakgarageblok.nl
+135. Snackbar De Krim - info@snackbardekrim.nl
+136. Kinderopvang De Groeiplaneet - info@degroeiplaneet.nl
+137. Groeneveld Brillen - info@groeneveldbrillen.nl
+138. Spanino Pizza (duplicate) - hanspanjersberg@gmail.com
+139. Restaurant Zoutsteen - info@restaurantzoutsteen.nl
+140. DentalCare Krimpen - administratie@dentalcare-krimpen.nl
+141. Een Tandje Hoger - info@eentandjehoger.nl
+142. VLR Accountants - info@vlraccountants.nl
+143. Folkerts & Kaat - info@folkertskaat.nl
+144. Verdoold Makelaars - info@verdoold.nl
+145. Van Herk Makelaars Krimpen - krimpen@vanherk.nl
+146. Padmos Makelaardij - info@padmosmakelaardij.nl
+147. Comfort Makelaardij - info@comfortmakelaardij.nl
+148. Bella Ricci - info@bellaricci.nl
+
+=== NEXT STEP: VERIFY AGAINST NOTION DATABASE ===
+Need to check Notion Marketing Leads database for:
+- Whether each company is registered
+- Whether status = "Verstuurd"
+- Whether verzend datum is filled in

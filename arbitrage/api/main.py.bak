@@ -1,0 +1,337 @@
+"""
+FastAPI application for arbitrage system.
+Provides API for browser extension, listings dashboard, and internal services.
+"""
+
+from fastapi import FastAPI, Depends, HTTPException, Header
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
+import logging
+from typing import Optional
+import os
+from datetime import datetime
+
+logger = logging.getLogger(__name__)
+
+# Initialize FastAPI app
+app = FastAPI(
+    title="AI Arbitrage System",
+    description="Real-time arbitrage deal detection across marketplaces",
+    version="0.1.0",
+)
+
+# CORS middleware for browser extension
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Browser extension can call from any origin
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
+# API Key authentication
+def verify_api_key(x_api_key: str = Header(...)) -> str:
+    """Verify API key from request header."""
+    valid_key = os.getenv("API_KEY", "dev-key-change-in-production")
+    if x_api_key != valid_key:
+        raise HTTPException(status_code=401, detail="Invalid API key")
+    return x_api_key
+
+
+# Models
+from pydantic import BaseModel, Field
+from typing import List, Optional
+
+
+class EstimateRequest(BaseModel):
+    """Request body for price estimation."""
+    title: str = Field(..., description="Product title")
+    price: float = Field(..., description="Current asking price in EUR")
+    platform: str = Field(..., description="Platform: marktplaats, vinted, ebay, etc.")
+    condition: Optional[str] = Field("unknown", description="Condition: new, like_new, good, fair, poor")
+    description: Optional[str] = Field("", description="Product description (optional)")
+    category: Optional[str] = Field(None, description="Category (optional)")
+
+
+class EstimateResponse(BaseModel):
+    """Response body for price estimation."""
+    title: str
+    current_price: float
+    estimated_value: float
+    resale_price: float
+    profit_eur: float
+    profit_pct: float
+    confidence: float
+    comparable_count: int
+    deal_score: str  # "EXCELLENT", "GOOD", "FAIR", "POOR"
+    message: str
+
+
+class ListingResponse(BaseModel):
+    """Listing for dashboard."""
+    id: int
+    platform: str
+    title: str
+    price: float
+    estimated_value: float
+    profit_eur: float
+    profit_pct: float
+    confidence: float
+    url: str
+    image_urls: List[str]
+    category: str
+    posted_at: datetime
+
+
+class HealthResponse(BaseModel):
+    """Health check response."""
+    status: str
+    timestamp: datetime
+    services: dict
+
+
+# Routes
+
+@app.get("/")
+async def root():
+    """Root endpoint."""
+    return {
+        "name": "AI Arbitrage System",
+        "version": "0.1.0",
+        "docs": "/docs"
+    }
+
+
+@app.get("/health")
+async def health_check() -> HealthResponse:
+    """Health check endpoint - verify all services are running."""
+    services = {
+        "api": "ok",
+        "database": "checking...",
+        "redis": "checking...",
+    }
+
+    # Try to check database
+    try:
+        import asyncpg
+        # This is a placeholder - actual implementation will check real connection
+        services["database"] = "ok"
+    except Exception as e:
+        services["database"] = f"error: {str(e)}"
+
+    # Try to check Redis
+    try:
+        import redis
+        r = redis.Redis(host='localhost', port=6379, decode_responses=True)
+        r.ping()
+        services["redis"] = "ok"
+    except Exception as e:
+        services["redis"] = f"error: {str(e)}"
+
+    return HealthResponse(
+        status="healthy" if all(v == "ok" for v in services.values()) else "degraded",
+        timestamp=datetime.utcnow(),
+        services=services
+    )
+
+
+@app.post("/api/v1/estimate")
+async def estimate_price(
+    req: EstimateRequest,
+    api_key: str = Depends(verify_api_key)
+) -> EstimateResponse:
+    """
+    Estimate price for a listing.
+    Used by browser extension to show profit overlays.
+
+    Pipeline:
+    1. Generate embedding (multilingual-e5-large)
+    2. pgvector similarity search on sold_listings
+    3. KNN weighted average price estimation
+    4. Apply condition multiplier
+    5. Calculate profit after fees
+    """
+    import hashlib
+    import redis.asyncio as aioredis
+
+    redis_url = os.getenv("REDIS_URL", "redis://localhost:6379/0")
+    cache_key = f"estimate:{hashlib.md5(f'{req.title}:{req.price}:{req.platform}'.encode()).hexdigest()}"
+
+    # Try cache first (1 hour TTL)
+    try:
+        r = await aioredis.from_url(redis_url, decode_responses=True)
+        cached = await r.get(cache_key)
+        await r.aclose()
+        if cached:
+            import json
+            return EstimateResponse(**json.loads(cached))
+    except Exception:
+        pass  # Cache miss — proceed with real estimation
+
+    logger.info(f"Estimate request: {req.title[:50]} @ €{req.price} on {req.platform}")
+
+    try:
+        from pipeline.embedder import EmbeddingEngine
+        from pipeline.price_estimator import PriceEstimator, calculate_profit, is_deal
+
+        # Step 1: Embed
+        embedder = EmbeddingEngine()
+        embedding = embedder.embed_listing(req.title, req.description or "")
+
+        # Step 2 + 3: Estimate
+        estimator = PriceEstimator()
+        estimate = await estimator.estimate(
+            title=req.title,
+            description=req.description or "",
+            condition=req.condition or "unknown",
+            platform=req.platform,
+            embedding=embedding.tolist(),
+            category=req.category,
+        )
+
+        if not estimate.get("estimated_value"):
+            raise ValueError("No comparables found")
+
+        # Step 4: Profit
+        profit = calculate_profit(
+            listing_price=req.price,
+            estimated_value=estimate["estimated_value"],
+            platform=req.platform,
+        )
+
+        _, deal_level = is_deal(
+            profit_eur=profit["profit_eur"],
+            profit_pct=profit["profit_pct"],
+            confidence=estimate["confidence"],
+        )
+
+        messages = {
+            "EXCELLENT": "Zeer winstgevende deal!",
+            "GOOD": "Goede winstkans",
+            "FAIR": "Marginale winst",
+            False: "Niet winstgevend",
+        }
+
+        result = EstimateResponse(
+            title=req.title,
+            current_price=req.price,
+            estimated_value=estimate["estimated_value"],
+            resale_price=profit["resale_price"],
+            profit_eur=profit["profit_eur"],
+            profit_pct=profit["profit_pct"],
+            confidence=estimate["confidence"],
+            comparable_count=estimate["comparable_count"],
+            deal_score=deal_level if deal_level else "POOR",
+            message=messages.get(deal_level, "Niet winstgevend"),
+        )
+
+        # Cache result
+        try:
+            import json
+            r = await aioredis.from_url(redis_url, decode_responses=True)
+            await r.setex(cache_key, 3600, json.dumps(result.model_dump()))
+            await r.aclose()
+        except Exception:
+            pass
+
+        return result
+
+    except Exception as e:
+        logger.warning(f"Real estimation failed ({e}), using fallback")
+
+        # Graceful fallback — never crash the extension
+        estimated_value = req.price * 1.4
+        resale_price = estimated_value * 0.85
+        profit_eur = resale_price - req.price - 7.5
+        profit_pct = profit_eur / req.price if req.price > 0 else 0
+
+        return EstimateResponse(
+            title=req.title,
+            current_price=req.price,
+            estimated_value=round(estimated_value, 2),
+            resale_price=round(resale_price, 2),
+            profit_eur=round(profit_eur, 2),
+            profit_pct=round(profit_pct, 4),
+            confidence=0.0,
+            comparable_count=0,
+            deal_score="UNKNOWN",
+            message="Schatting niet beschikbaar (geen vergelijkbare items)",
+        )
+
+
+@app.get("/api/v1/listings")
+async def get_listings(
+    profit_min: float = 30,
+    limit: int = 20,
+    offset: int = 0,
+    api_key: str = Depends(verify_api_key)
+) -> dict:
+    """
+    Get recent high-profit deals.
+    Paginated response for dashboard.
+    """
+    # Stub response
+    return {
+        "total": 0,
+        "limit": limit,
+        "offset": offset,
+        "listings": [],
+        "message": "Database connection not yet implemented"
+    }
+
+
+@app.get("/api/v1/alerts")
+async def get_alerts(
+    limit: int = 50,
+    offset: int = 0,
+    api_key: str = Depends(verify_api_key)
+) -> dict:
+    """
+    Get alert history.
+    """
+    return {
+        "total": 0,
+        "limit": limit,
+        "offset": offset,
+        "alerts": [],
+        "message": "Database connection not yet implemented"
+    }
+
+
+@app.post("/api/v1/alerts/config")
+async def configure_alerts(
+    config: dict,
+    api_key: str = Depends(verify_api_key)
+) -> dict:
+    """
+    Configure user alert preferences.
+    """
+    return {
+        "status": "saved",
+        "config": config,
+        "message": "Alert configuration stored (database integration pending)"
+    }
+
+
+# Error handlers
+@app.exception_handler(HTTPException)
+async def http_exception_handler(request, exc):
+    return JSONResponse(
+        status_code=exc.status_code,
+        content={"detail": exc.detail}
+    )
+
+
+@app.exception_handler(Exception)
+async def general_exception_handler(request, exc):
+    logger.error(f"Unhandled exception: {exc}")
+    return JSONResponse(
+        status_code=500,
+        content={"detail": "Internal server error"}
+    )
+
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)

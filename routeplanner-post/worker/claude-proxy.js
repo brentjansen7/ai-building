@@ -9,7 +9,7 @@
 // 4. Ga naar KV → maak namespace aan: RATE_LIMIT_KV → bind als "RATE_LIMIT"
 // 5. Klik Deploy
 
-const CLAUDE_MODEL   = 'claude-3-haiku-20240307';  // snelste, goedkoopste
+const CLAUDE_MODEL   = 'claude-haiku-4-5-20251001';  // snelste, goedkoopste vision-model
 const MAX_PER_DAY    = 50;                            // max scans per IP per dag
 const CORS_ORIGIN    = '*';                           // sta alle origins toe
 
@@ -89,10 +89,9 @@ export default {
 
                 const msgContent = [];
                 if (imageBase64) {
-                    // Zet MIME type naar Claude formaat (jpeg, png, gif, webp)
-                    let claudeMimeType = imageMimeType;
-                    if (imageMimeType === 'image/jpeg') claudeMimeType = 'image/jpeg';
-                    if (imageMimeType === 'image/png') claudeMimeType = 'image/png';
+                    // Claude ondersteunt alleen jpeg, png, gif, webp. Onbekend → jpeg.
+                    const toegestaan = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+                    const claudeMimeType = toegestaan.includes(imageMimeType) ? imageMimeType : 'image/jpeg';
 
                     msgContent.push({
                         type: 'image',

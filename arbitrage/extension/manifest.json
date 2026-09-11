@@ -1,0 +1,53 @@
+{
+  "manifest_version": 3,
+  "name": "Arbitrage Deal Finder",
+  "version": "0.1.0",
+  "description": "Real-time profit margin detection on second-hand marketplaces",
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://www.marktplaats.nl/*",
+    "https://www.vinted.nl/*",
+    "https://www.ebay.nl/*",
+    "https://www.ebay.de/*",
+    "https://www.ebay.com/*",
+    "https://www.catawiki.com/*",
+    "https://www.bva-auctions.nl/*",
+    "https://www.troostwijkauctions.com/*",
+    "https://auctionet.com/*",
+    "https://www.2dehands.be/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.marktplaats.nl/*",
+        "https://www.vinted.nl/*",
+        "https://www.ebay.nl/*",
+        "https://www.ebay.de/*",
+        "https://www.ebay.com/*",
+        "https://www.catawiki.com/*",
+        "https://www.bva-auctions.nl/*",
+        "https://www.troostwijkauctions.com/*",
+        "https://auctionet.com/*",
+        "https://www.2dehands.be/*"
+      ],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "Arbitrage Deal Finder"
+  },
+  "icons": {
+    "16": "icons/16.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  }
+}

@@ -1,0 +1,77 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Models
+models/
+*.pkl
+*.pth
+
+# Logs
+logs/
+*.log
+
+# Cache
+.cache/
+*.cache
+
+# Docker
+.dockerignore
+
+# Browser profiles (Playwright)
+browser_profiles/
+
+# Test results
+.pytest_cache/
+htmlcov/
+.coverage
+
+# Temporary
+tmp/
+temp/
+*.tmp
+
+# Redis dump
+dump.rdb

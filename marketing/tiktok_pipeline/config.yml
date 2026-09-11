@@ -1,0 +1,83 @@
+brand:
+  name: "Routeplanner"
+  account: "@routeplanner.nl"
+  positioning: "Een 16-jarige uit Krimpen bouwt AI voor koeriers"
+  pricing: "Gratis tot 15 stops/dag, Premium €19/mnd onbeperkt"
+
+voice:
+  primary: "nl-NL-MaartenNeural"
+  secondary: "nl-NL-FennaNeural"
+  rate: "+5%"
+  pitch: "+0Hz"
+
+video:
+  width: 1080
+  height: 1920
+  fps: 30
+  duration_min: 15
+  duration_max: 45
+  music_volume_db: -28
+
+posting_schedule:
+  week_1:
+    posts_per_day: 3
+    times: ["08:00", "13:00", "19:00"]
+  week_2_plus:
+    posts_per_day: 4
+    times: ["07:00", "12:00", "17:00", "20:30"]
+
+formats:
+  live_demo:
+    weight: 35
+    description: "Screen-recording routeplanner: input → optimaliseer → resultaat"
+  before_after:
+    weight: 20
+    description: "Split-screen Google Maps chaos vs onze planner"
+  pain_point:
+    weight: 20
+    description: "Stock b-roll + voice-over over koerier-pijnpunten"
+  numbers_hook:
+    weight: 15
+    description: "Vol-scherm cijfers met dramatische audio"
+  pov_day:
+    weight: 10
+    description: "POV een dag uit het leven met/zonder routeplanner"
+
+hooks:
+  - "Een 16-jarige bouwde dit voor zijn eigen postroute"
+  - "PostNL en DHL bezorgers, kijk dit even"
+  - "Waarom rijden bezorgers nog steeds met print-lijsten in 2026"
+  - "Dit kost 19 euro per maand en bespaart je een uur per dag"
+  - "Een koerier verspilt 7 uur per week aan deze ene fout"
+  - "Gratis tool die elke koerier zou moeten kennen"
+  - "Hoe ik 100 pakketten in 30 seconden op route zet"
+  - "Wat ik leerde van 100 plus stops per week bezorgen"
+  - "Dit doe je verkeerd als bezorger"
+  - "Stop met je route handmatig plannen"
+  - "Drie minuten werk wordt 10 seconden"
+  - "Dit gebruik ik elke ochtend voor mijn postroute"
+
+ctas:
+  - "Link in bio. Gratis proberen."
+  - "Zoek routeplanner punt nl op Google."
+  - "Comment 'route' dan stuur ik 'm in de DM."
+  - "Pak je gratis account via de link."
+  - "Check de bio. 15 stops per dag gratis."
+
+hashtags:
+  primary:
+    - "#koerier"
+    - "#pakketbezorger"
+    - "#postnl"
+    - "#dhl"
+    - "#zzp"
+  secondary:
+    - "#bezorgservice"
+    - "#routeoptimalisatie"
+    - "#ai"
+    - "#automatisering"
+    - "#ondernemen"
+  local:
+    - "#krimpen"
+    - "#rotterdam"
+    - "#zuidholland"

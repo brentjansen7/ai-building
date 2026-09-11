@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vastgoed AI Dealfinder</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      width: 360px;
+      min-height: 500px;
+      background: #1a1f2e;
+      color: #e2e8f0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 13px;
+    }
+
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .header-icon { font-size: 24px; }
+    .header-title { font-size: 15px; font-weight: 700; color: white; }
+    .header-sub { font-size: 11px; color: rgba(255,255,255,0.7); margin-top: 1px; }
+
+    /* Tabs */
+    .tabs {
+      display: flex;
+      background: #111827;
+      border-bottom: 1px solid #2d3448;
+    }
+    .tab {
+      flex: 1;
+      padding: 10px;
+      text-align: center;
+      cursor: pointer;
+      font-size: 12px;
+      color: #6b7280;
+      border: none;
+      background: none;
+      border-bottom: 2px solid transparent;
+      transition: all 0.15s;
+    }
+    .tab.active {
+      color: #3b82f6;
+      border-bottom-color: #3b82f6;
+    }
+    .tab:hover:not(.active) { color: #9ca3af; }
+
+    /* Tab content */
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    /* Settings form */
+    .settings-section {
+      padding: 14px 16px;
+      border-bottom: 1px solid #1f2937;
+    }
+    .settings-section h3 {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #6b7280;
+      margin-bottom: 10px;
+    }
+
+    .form-group { margin-bottom: 12px; }
+    .form-group:last-child { margin-bottom: 0; }
+
+    label {
+      display: block;
+      font-size: 12px;
+      color: #9ca3af;
+      margin-bottom: 4px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="number"] {
+      width: 100%;
+      padding: 7px 10px;
+      background: #111827;
+      border: 1px solid #374151;
+      border-radius: 6px;
+      color: #e2e8f0;
+      font-size: 13px;
+      outline: none;
+      transition: border 0.15s;
+    }
+    input:focus { border-color: #3b82f6; }
+
+    .range-group { display: flex; align-items: center; gap: 10px; }
+    input[type="range"] {
+      flex: 1;
+      accent-color: #3b82f6;
+    }
+    .range-value {
+      min-width: 40px;
+      text-align: right;
+      font-weight: 600;
+      color: #3b82f6;
+    }
+
+    .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+    .grade-checkbox {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 10px;
+      border: 1px solid #374151;
+      border-radius: 99px;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 600;
+      transition: all 0.15s;
+    }
+    .grade-checkbox input { display: none; }
+    .grade-checkbox.checked { border-color: transparent; }
+    .grade-A.checked { background: #14532d; color: #22c55e; }
+    .grade-B.checked { background: #1e3a5f; color: #60a5fa; }
+    .grade-C.checked { background: #78350f; color: #f59e0b; }
+    .grade-D.checked { background: #7f1d1d; color: #f87171; }
+
+    .btn-save {
+      display: block;
+      width: calc(100% - 32px);
+      margin: 14px 16px;
+      padding: 10px;
+      background: #3b82f6;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      transition: background 0.15s;
+    }
+    .btn-save:hover { background: #2563eb; }
+
+    /* Saved deals */
+    .deals-list { padding: 8px 0; }
+    .deal-item {
+      padding: 12px 16px;
+      border-bottom: 1px solid #1f2937;
+      cursor: pointer;
+      transition: background 0.1s;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .deal-item:hover { background: #1f2937; }
+
+    .deal-grade {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 900;
+      flex-shrink: 0;
+    }
+    .grade-A-bg { background: #14532d; color: #22c55e; }
+    .grade-B-bg { background: #1e3a5f; color: #60a5fa; }
+    .grade-C-bg { background: #78350f; color: #f59e0b; }
+    .grade-D-bg { background: #7f1d1d; color: #f87171; }
+
+    .deal-info { flex: 1; }
+    .deal-address { font-size: 13px; font-weight: 600; }
+    .deal-meta { font-size: 11px; color: #6b7280; margin-top: 2px; }
+    .deal-profit { font-size: 13px; font-weight: 700; color: #22c55e; }
+
+    .empty-state {
+      padding: 40px 16px;
+      text-align: center;
+      color: #4b5563;
+    }
+    .empty-icon { font-size: 40px; margin-bottom: 12px; }
+
+    .clear-btn {
+      display: block;
+      width: calc(100% - 32px);
+      margin: 0 16px 14px;
+      padding: 8px;
+      background: transparent;
+      color: #ef4444;
+      border: 1px solid #ef4444;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 12px;
+      transition: all 0.15s;
+    }
+    .clear-btn:hover { background: #7f1d1d; }
+
+    /* Status */
+    .status-bar {
+      padding: 8px 16px;
+      background: #111827;
+      border-top: 1px solid #2d3448;
+      font-size: 11px;
+      color: #6b7280;
+      display: flex;
+      justify-content: space-between;
+    }
+    .status-dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #22c55e;
+      margin-right: 4px;
+      vertical-align: middle;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #1f2937;
+      color: #e2e8f0;
+      padding: 8px 16px;
+      border-radius: 99px;
+      font-size: 12px;
+      border: 1px solid #374151;
+      z-index: 9999;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-icon">🏠</div>
+    <div>
+      <div class="header-title">Vastgoed AI Dealfinder</div>
+      <div class="header-sub">Investerings analyse tool</div>
+    </div>
+  </div>
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <button class="tab active" data-tab="saved">⭐ Opgeslagen</button>
+    <button class="tab" data-tab="settings">⚙️ Instellingen</button>
+  </div>
+
+  <!-- Saved Deals Tab -->
+  <div class="tab-content active" id="tab-saved">
+    <div class="deals-list" id="deals-list">
+      <div class="empty-state">
+        <div class="empty-icon">🏚️</div>
+        <p>Nog geen deals opgeslagen.</p>
+        <p style="margin-top:6px;font-size:11px;">Open een woningpagina om te beginnen.</p>
+      </div>
+    </div>
+    <button class="clear-btn" id="clear-btn" style="display:none">🗑️ Alle deals verwijderen</button>
+  </div>
+
+  <!-- Settings Tab -->
+  <div class="tab-content" id="tab-settings">
+
+    <div class="settings-section">
+      <h3>🔌 API Verbinding</h3>
+      <div class="form-group">
+        <label>API Endpoint</label>
+        <input type="text" id="apiBase" placeholder="http://localhost:8000">
+      </div>
+      <div class="form-group">
+        <label>API Key</label>
+        <input type="password" id="apiKey" placeholder="dev_key_change_in_prod">
+      </div>
+    </div>
+
+    <div class="settings-section">
+      <h3>🔔 Alert Drempels</h3>
+      <div class="form-group">
+        <label>Minimum Deal Score</label>
+        <div class="range-group">
+          <input type="range" id="minScore" min="0" max="100" value="70">
+          <span class="range-value" id="minScoreDisplay">70</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Minimum ROI %</label>
+        <input type="number" id="minROI" min="0" max="100" value="15">
+      </div>
+      <div class="form-group">
+        <label>Minimum Winst (€)</label>
+        <input type="number" id="minProfit" min="0" step="5000" value="30000">
+      </div>
+    </div>
+
+    <div class="settings-section">
+      <h3>🎯 Alert Grades</h3>
+      <div class="checkbox-group">
+        <label class="grade-checkbox grade-A checked" id="grade-A">
+          <input type="checkbox" value="A" checked> A
+        </label>
+        <label class="grade-checkbox grade-B checked" id="grade-B">
+          <input type="checkbox" value="B" checked> B
+        </label>
+        <label class="grade-checkbox grade-C" id="grade-C">
+          <input type="checkbox" value="C"> C
+        </label>
+        <label class="grade-checkbox grade-D" id="grade-D">
+          <input type="checkbox" value="D"> D
+        </label>
+      </div>
+    </div>
+
+    <button class="btn-save" id="save-btn">✓ Instellingen Opslaan</button>
+  </div>
+
+  <!-- Status bar -->
+  <div class="status-bar">
+    <span><span class="status-dot"></span>Actief</span>
+    <span id="deals-count">0 deals opgeslagen</span>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
