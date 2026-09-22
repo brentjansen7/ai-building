@@ -27,10 +27,28 @@ jobs:
 
       - uses: actions/configure-pages@v5
 
-      # De hele repo-root is de site (.nojekyll staat er al, dus geen Jekyll-stap)
+      # Alleen wat publiek mag gaat mee. Alles wat hier niet staat — de
+      # e-mail- en leadbestanden, de CEO-rapporten, de Python-scripts —
+      # komt dus niet op de website terecht.
+      - name: Site samenstellen
+        run: |
+          set -e
+          mkdir -p _site
+          touch _site/.nojekyll
+
+          # Marketingpagina's en wat ze laden
+          cp index.html logistiek.html horeca.html onderwijs.html zorg.html _site/
+          cp style.css main.js brent.jpg _site/
+
+          # De routeplanner (staat op zichzelf, verwijst nergens naar buiten)
+          cp -r routeplanner-post _site/
+
+          echo "Dit gaat live:"
+          find _site -type f | sort
+
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: '_site'
 
       - id: deployment
         uses: actions/deploy-pages@v4
